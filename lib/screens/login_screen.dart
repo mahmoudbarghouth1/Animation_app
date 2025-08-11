@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(width: 10),
                     GestureDetector(
-                      onTap:_emailController.text.isNotEmpty? null:() {
+                      onTap:(){
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (_) => SignupScreen()),
