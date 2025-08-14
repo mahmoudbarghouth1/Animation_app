@@ -1,10 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
+import 'package:sign/core/util/snake_bar_message.dart';
+import 'package:sign/view/screens/home_screen.dart';
+
 import 'package:sign/view/screens/signup_screen.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
+import 'package:sign/viewmodel/auth_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthViewModel viewModel = AuthViewModel();
   final _formkey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _paswordController = TextEditingController();
@@ -25,14 +29,28 @@ class _LoginScreenState extends State<LoginScreen> {
     _paswordController;
   }
 
-  Future signIn() async {
-    _formkey.currentState!.validate();
+  // Future signIn() async {
+  //   _formkey.currentState!.validate();
+  //   try {
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //       email: _emailController.text.trim(),
+  //       password: _paswordController.text.trim(),
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     log(e.code);
+  //     String errorMessage = erroreMessage(e.code);
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _paswordController.text.trim(),
-    );
-  }
+  //     SnakeBarMessageWidget().showFailureSnakeBar(
+  //       message: errorMessage,
+  //       context: context,
+  //     );
+  //   } catch (e) {
+  //     SnakeBarMessageWidget().showFailureSnakeBar(
+  //       message: 'An unexpected error occurred: ${e.toString()}',
+  //       context: context,
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -101,8 +119,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderRadius: BorderRadiusGeometry.circular(12),
                         ),
                       ),
-                      onPressed: () {
-                        signIn();
+                      onPressed: () async {
+                        bool success = await viewModel.signIn(
+                          _emailController.text.trim(),
+                          _paswordController.text.trim(),
+                        );
+                        if (success) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => HomeScreen()),
+                          );
+                        } else {
+                          SnakeBarMessageWidget().showFailureSnakeBar(
+                            message: viewModel.sininErrorMessage!,
+                            // "failed to load",
+                            context: context,
+                          );
+                        }
                       },
 
                       child: Text(

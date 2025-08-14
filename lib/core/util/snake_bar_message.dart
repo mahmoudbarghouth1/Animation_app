@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SnakeBarMessage {
+class SnakeBarMessageWidget {
   void showSuccessSnakeBar({required String message, required BuildContext context}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

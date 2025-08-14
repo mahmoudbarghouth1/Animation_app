@@ -1,13 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'dart:developer' show log;
+
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
-// import 'package:sign/core/widgets/loadin_view.dart';
-import 'package:sign/view/auth.dart';
+
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
+import 'package:sign/core/util/snake_bar_message.dart';
+import 'package:sign/view/auth.dart';
 import 'package:sign/view/screens/login_screen.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
-
+import 'package:sign/viewmodel/auth_view_model.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -17,6 +20,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final AuthViewModel viewModel = AuthViewModel();
   final _formkey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _paswordController = TextEditingController();
@@ -31,19 +35,6 @@ class _SignupScreenState extends State<SignupScreen> {
     _confirmPaswordController;
     _usernamecontroller;
     super.dispose();
-  }
-
-  Future sinUp(context) async {
-    _formkey.currentState!.validate();
-
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _paswordController.text.trim(),
-    );
-    if (_paswordController.text.trim() ==
-        _confirmPaswordController.text.trim()) {
-      Navigator.push(context, MaterialPageRoute(builder: (_) => Auth()));
-    }
   }
 
   @override
@@ -157,8 +148,24 @@ class _SignupScreenState extends State<SignupScreen> {
                     backgroundColor: secondryColor,
                   ),
 
-                  onPressed: () {
-                    sinUp(context);
+                  onPressed: () async {
+                    bool success = await viewModel.signUp(
+                      _emailController.text.trim(),
+                      _confirmPaswordController.text.trim(),
+                    );
+                    if (success &&
+                        _emailController.text.trim() ==
+                            _confirmPaswordController.text.trim()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => Auth()),
+                      );
+                    } else {
+                      SnakeBarMessageWidget().showFailureSnakeBar(
+                        message: viewModel.sinupErroreMessage!,
+                        context: context,
+                      );
+                    }
                   },
 
                   child: Center(
