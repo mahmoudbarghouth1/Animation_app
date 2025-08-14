@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
 import 'package:sign/view/screens/signup_screen.dart';
@@ -13,8 +14,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _formkey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _paswordController = TextEditingController();
+
   @override
   void dispose() {
     super.dispose();
@@ -23,6 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future signIn() async {
+    _formkey.currentState!.validate();
+
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(),
       password: _paswordController.text.trim(),
@@ -37,102 +42,104 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                //image
-                AppImage(),
-                SizedBox(height: 20),
-                //title text
-                Text("Welcome Back", style: appTheme.textTheme.bodyLarge),
-                //sub title text
-                Text(
-                  "Sign in to continue your anime journey",
-                  style: appTheme.textTheme.bodyMedium,
-                ),
-                SizedBox(height: 15),
-                //email text field
-                Container(
-                  decoration: BoxDecoration(
-                    color: secondryColor,
-                    borderRadius: BorderRadius.circular(12),
+            child: Form(
+              key: _formkey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  //image
+                  AppImage(),
+                  SizedBox(height: 20),
+                  //title text
+                  Text("msg1".tr(context), style: appTheme.textTheme.bodyLarge),
+                  //sub title text
+                  Text(
+                    "msg2".tr(context),
+                    style: appTheme.textTheme.bodyMedium,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: TextFieldWidget(
-                      controller: _emailController,
-                      hintText: "Email",
-                      obscureText: false,
+                  SizedBox(height: 15),
+                  //email text field
+                  Container(
+                    decoration: BoxDecoration(
+                      color: secondryColor,
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                //pasword textfield
-                Container(
-                  decoration: BoxDecoration(
-                    color: secondryColor,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: TextFieldWidget(
-                      controller: _paswordController,
-                      hintText: "Password",
-                      obscureText: true,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: secondryColor,
-
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(12),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: TextFieldWidget(
+                        controller: _emailController,
+                        hintText: "msg3".tr(context),
+                        obscureText: false,
                       ),
                     ),
-                    onPressed: //_paswordController.text.isNotEmpty&&_emailController.text.isNotEmpty?
-                    () {
-                      signIn();
-                    },
-                    //: null,
-                    child: Text(
-                      "Sign In",
-                      style: appTheme.textTheme.bodyMedium,
+                  ),
+                  SizedBox(height: 10),
+                  //pasword textfield
+                  Container(
+                    decoration: BoxDecoration(
+                      color: secondryColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: TextFieldWidget(
+                        controller: _paswordController,
+                        hintText: "msg4".tr(context),
+                        obscureText: true,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 10),
-                //signin button
-                Text("Forget password", style: appTheme.textTheme.bodySmall),
-                SizedBox(height: 15),
-                //sinup text
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Dont have an account",
-                      style: appTheme.textTheme.bodySmall,
-                    ),
-                    SizedBox(width: 10),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (_) => SignupScreen()),
-                        );
+                  SizedBox(height: 10),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: secondryColor,
+
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(12),
+                        ),
+                      ),
+                      onPressed: () {
+                        signIn();
                       },
+
                       child: Text(
-                        "Sign up ",
+                        "msg5".tr(context),
                         style: appTheme.textTheme.bodyMedium,
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(height: 10),
+                  //signin button
+                  Text("msg6".tr(context), style: appTheme.textTheme.bodySmall),
+                  SizedBox(height: 15),
+                  //sinup text
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "msg7".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
+                      SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => SignupScreen()),
+                          );
+                        },
+                        child: Text(
+                          "msg8".tr(context),
+                          style: appTheme.textTheme.bodyMedium,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

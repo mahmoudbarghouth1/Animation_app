@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sign/core/app_localizations.dart';
+import 'package:sign/core/app_theme.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -11,13 +13,10 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 5, 43, 147),
+      backgroundColor: primaryColor,
       appBar: AppBar(),
       body: Center(
-        child: Container(
-          color: const Color.fromRGBO(55, 88, 237, 1),
-          child: Text("Top anime "),
-        ),
+        child: Container(color: primaryColor, child: Text("msg15".tr(context))),
       ),
     );
   }

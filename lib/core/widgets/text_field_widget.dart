@@ -14,7 +14,13 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "in vaild input";
+        }
+        return null;
+      },
       style: appTheme.textTheme.bodySmall,
       obscureText: obscureText,
       controller: controller,

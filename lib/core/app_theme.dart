@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-final primaryColor = const Color.fromARGB(255, 56, 71, 146);
+final primaryColor = const Color.fromARGB(255, 11, 21, 73);
 
-final secondryColor = const Color.fromARGB(255, 79, 102, 216);
+final secondryColor = const Color.fromARGB(255, 72, 97, 219);
 final appTheme = ThemeData(
   appBarTheme: AppBarTheme(
-    backgroundColor: primaryColor,
+    backgroundColor: secondryColor,
     //centerTitle: true,
     titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
   ),
@@ -19,13 +19,13 @@ final appTheme = ThemeData(
     ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: primaryColor,
+    backgroundColor: secondryColor,
     // selectedIconTheme: ,
-    selectedItemColor: Colors.amber,
+    selectedItemColor: Colors.black,
     // selectedLabelStyle: ,
     showSelectedLabels: true,
     // unselectedIconTheme: ,
-    unselectedItemColor: Colors.amber,
+    unselectedItemColor: primaryColor,
     // unselectedLabelStyle: ,
     showUnselectedLabels: true,
   ),

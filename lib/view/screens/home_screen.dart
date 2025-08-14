@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/view/widgets/setting_screen.dart';
 
@@ -44,26 +45,28 @@ class _HomeScreenState extends State<HomeScreen> {
   //   bottom navigator
   BottomNavigationBar _bottomnavigation() {
     return BottomNavigationBar(
-      // selectedItemColor: Colors.blue,
-      // unselectedItemColor: const Color.fromARGB(255, 193, 21, 107),
-      // selectedLabelStyle: TextStyle(color: Colors.blue),
-      // unselectedLabelStyle: TextStyle(
-      //   color: const Color.fromARGB(255, 193, 21, 107),
-      // ),
+      type: BottomNavigationBarType.fixed,
+
       onTap: (index) {
         _bottomnavigatingpages(index);
       },
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.emoji_events),
-          label: "Top Anime",
+          label: "msg15".tr(context),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.folder_copy),
-          label: "Top Managa",
+          label: "msg16".tr(context),
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings "),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: "msg17".tr(context),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: "msg18".tr(context),
+        ),
       ],
     );
   }
@@ -83,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
       leadingWidth: 5,
       leading: Icon(Icons.emoji_events),
 
-      title: Text("Top Anime", style: appTheme.textTheme.bodyMedium),
+      title: Text("msg17".tr(context), style: appTheme.textTheme.bodyMedium),
     );
   }
 }
