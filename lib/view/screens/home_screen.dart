@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
+import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
 import 'package:sign/view/widgets/setting_screen.dart';
+import 'package:sign/core/util/snake_bar_message.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -78,15 +80,22 @@ class _HomeScreenState extends State<HomeScreen> {
         IconButton(
           onPressed: () {
             FirebaseAuth.instance.signOut();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => LoginScreen()),
+            );
+            SnakeBarMessageWidget().showSuccessSnakeBar(
+              message: "msg19".tr(context),
+              context: context,
+            );
           },
-          icon: Icon(Icons.logout_rounded),
+          icon: Icon(Icons.logout_rounded, color: Colors.white60),
         ),
       ],
-      titleSpacing: 20,
-      leadingWidth: 5,
-      leading: Icon(Icons.emoji_events),
 
-      title: Text("msg17".tr(context), style: appTheme.textTheme.bodyMedium),
+      leading: Icon(Icons.emoji_events, color: Colors.white60),
+
+      title: Text("msg15".tr(context), style: appTheme.textTheme.bodyMedium),
     );
   }
 }

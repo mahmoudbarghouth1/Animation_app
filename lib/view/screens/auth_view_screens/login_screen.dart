@@ -3,54 +3,30 @@ import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
-import 'package:sign/view/screens/home_screen.dart';
-
-import 'package:sign/view/screens/signup_screen.dart';
+import 'package:sign/view/screens/auth_view_screens/signup_screen.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
-import 'package:sign/viewmodel/auth_view_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sign/view/screens/home_screen.dart';
+import 'package:sign/viewmodel/providers.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final AuthViewModel viewModel = AuthViewModel();
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formkey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _paswordController = TextEditingController();
 
   @override
   void dispose() {
-    super.dispose();
     _emailController;
     _paswordController;
+    super.dispose();
   }
-
-  // Future signIn() async {
-  //   _formkey.currentState!.validate();
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: _emailController.text.trim(),
-  //       password: _paswordController.text.trim(),
-  //     );
-  //   } on FirebaseAuthException catch (e) {
-  //     log(e.code);
-  //     String errorMessage = erroreMessage(e.code);
-
-  //     SnakeBarMessageWidget().showFailureSnakeBar(
-  //       message: errorMessage,
-  //       context: context,
-  //     );
-  //   } catch (e) {
-  //     SnakeBarMessageWidget().showFailureSnakeBar(
-  //       message: 'An unexpected error occurred: ${e.toString()}',
-  //       context: context,
-  //     );
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: TextFieldWidget(
+                        keyboard: TextInputType.emailAddress,
                         controller: _emailController,
                         hintText: "msg3".tr(context),
                         obscureText: false,
@@ -102,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: TextFieldWidget(
+                        keyboard: TextInputType.numberWithOptions(),
                         controller: _paswordController,
                         hintText: "msg4".tr(context),
                         obscureText: true,
@@ -120,18 +98,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       onPressed: () async {
-                        bool success = await viewModel.signIn(
-                          _emailController.text.trim(),
-                          _paswordController.text.trim(),
+                        final userviewmodle = ref.read(
+                          authViewerModelProvider.notifier,
                         );
+                        bool success = await ref
+                            .read(authViewerModelProvider.notifier)
+                            .signIn(
+                              _emailController.text.trim(),
+                              _paswordController.text.trim(),
+                            );
                         if (success) {
+                          SnakeBarMessageWidget().showSuccessSnakeBar(
+                            message: "msg20".tr(context),
+                            context: context,
+                          );
+                          Navigator.pop(context);
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (_) => HomeScreen()),
                           );
                         } else {
                           SnakeBarMessageWidget().showFailureSnakeBar(
-                            message: viewModel.sininErrorMessage!,
+                            message: userviewmodle.sininErrorMessage!,
                             // "failed to load",
                             context: context,
                           );

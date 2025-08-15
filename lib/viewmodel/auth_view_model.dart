@@ -1,13 +1,14 @@
 import 'dart:developer' show log;
-// import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sign/model/user_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AuthViewModel {
-  UserModel? currentuser;
+class AuthViewModel extends StateNotifier<UserModel?> {
+  AuthViewModel() : super(null);
+
   String? sininErrorMessage;
   String? sinupErroreMessage;
+
   Future signIn(String email, String password) async {
     try {
       final response = await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -16,7 +17,7 @@ class AuthViewModel {
       );
       final firebaseuser = response.user;
       if (firebaseuser != null) {
-        currentuser = UserModel.fromFirebaseUser(firebaseuser);
+        state = UserModel.fromFirebaseUser(firebaseuser);
         return true;
       }
     } on FirebaseAuthException catch (e) {
@@ -24,24 +25,26 @@ class AuthViewModel {
       sininErrorMessage = signinErroreMessage(e.code);
       return false;
     } catch (e) {
-      sininErrorMessage = "un expected errore${e.toString()}";
+      sininErrorMessage = "un expected errore";
       return false;
     }
   }
 
-  Future signUp(String email, String password) async{
+  Future signUp(String email, String password) async {
     try {
-       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      
+      final response = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      final firebaseuser = response.user;
+      if (firebaseuser != null) {
+        state = UserModel.fromFirebaseUser(firebaseuser);
+        return true;
+      }
     } on FirebaseAuthException catch (e) {
       log(e.code);
       sinupErroreMessage = signupErroreMessage(e.code);
       return false;
     } catch (e) {
-      sinupErroreMessage = "un expected errore${e.toString()}";
+      sinupErroreMessage = "un expected errore";
       return false;
     }
   }
@@ -49,11 +52,8 @@ class AuthViewModel {
 
 String signinErroreMessage(String code) {
   switch (code) {
-    case 'user-not-found':
-      return 'No user found with this email. Please sign up.';
-
     case 'invalid-credential':
-      return 'Incorrect password. Please try again or reset your password.';
+      return 'invalid password or email Please try again or sign up.';
 
     case 'invalid-email':
       return 'The email address is badly formatted.';
@@ -85,6 +85,8 @@ String signupErroreMessage(String code) {
 
     case 'weak-password':
       return 'The password is week .';
+    case 'channel-error':
+      return 'please input data .';
 
     default:
       return 'error try again later }';

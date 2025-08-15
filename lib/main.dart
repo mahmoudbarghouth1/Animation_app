@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
-import 'package:sign/view/auth.dart';
+import 'package:sign/view/screens/auth_view_screens/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

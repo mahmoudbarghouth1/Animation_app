@@ -5,9 +5,15 @@ final primaryColor = const Color.fromARGB(255, 11, 21, 73);
 final secondryColor = const Color.fromARGB(255, 72, 97, 219);
 final appTheme = ThemeData(
   appBarTheme: AppBarTheme(
-    backgroundColor: secondryColor,
+    backgroundColor: primaryColor,
     //centerTitle: true,
     titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    leadingWidth: 5,
+    titleSpacing: 25,
+  ),
+  iconTheme: IconThemeData(color: Colors.white70),
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(iconAlignment: IconAlignment.start),
   ),
 
   // brightness: Brightness.light,
@@ -19,14 +25,16 @@ final appTheme = ThemeData(
     ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: secondryColor,
+    type: BottomNavigationBarType.fixed,
+    elevation: 0.9,
+    backgroundColor: primaryColor,
     // selectedIconTheme: ,
-    selectedItemColor: Colors.black,
-    // selectedLabelStyle: ,
+    selectedItemColor: Colors.white70,
+    // selectedLabelStyle: TextStyle(color: Colors.white),
     showSelectedLabels: true,
     // unselectedIconTheme: ,
-    unselectedItemColor: primaryColor,
-    // unselectedLabelStyle: ,
+    unselectedItemColor: Colors.white30,
+    // unselectedLabelStyle: TextStyle(color: Colors.redAccent),
     showUnselectedLabels: true,
   ),
 

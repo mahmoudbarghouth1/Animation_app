@@ -6,18 +6,24 @@
     "msg5":"Sign In",
     "msg6":"Forget password",
     "msg7":"Dont have an account",
-    "msg8": "Sign up ",
+    "msg8":"Sign up ",
     "msg9":"Create A ccount",
     "msg10":"Welcome  Nice To see You  ",
     "msg11":"Username",
     "msg12":"Confirm Password",
-    "msg13": "I agree to the terms of policy ",
-    "msg14":" Already have an account",
+    "msg13":"I agree to the terms of policy ",
+    "msg14":"Already have an account",
     "msg15":"Top Anime",
     "msg16":"Top Managa",
     "msg17":"Search",
-    "msg18":"Settings"
-
+    "msg18":"Settings",
+    "msg19":"loged out successfully",
+    "msg20":"sined In successfully",
+    "msg21":"You must accept the terms",
+    "msg22":"signed up successfully sign in now ",
+    "msg23":"pasword does not mach"
+   
+   
 
 
 }

@@ -7,17 +7,20 @@ class TextFieldWidget extends StatelessWidget {
     required this.controller,
     required this.hintText,
     required this.obscureText,
+    required this.keyboard,
   });
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
+  final TextInputType keyboard;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboard,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return "in vaild input";
+          return "invalid input";
         }
         return null;
       },
