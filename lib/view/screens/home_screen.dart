@@ -1,56 +1,62 @@
+import 'dart:developer' show log;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
-import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
-import 'package:sign/view/widgets/setting_screen.dart';
-import 'package:sign/core/util/snake_bar_message.dart';
+import 'package:sign/view/widgets/search_widget.dart';
+import 'package:sign/view/widgets/setting_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sign/view/widgets/topanime_widget.dart';
+import 'package:sign/view/widgets/topmanga_widget.dart';
+import 'package:sign/viewmodel/providers.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   final user = FirebaseAuth.instance.currentUser!;
-  int _bottomindex = 0;
-  void _bottomnavigatingpages(index) {
-    setState(() {
-      _bottomindex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     Widget? body;
-    if (_bottomindex == 0) {
-      body = SettingScreen();
-    } else if (_bottomindex == 1) {
-      body = SettingScreen();
-    } else if (_bottomindex == 2) {
-      body = SettingScreen();
-    } else if (_bottomindex == 3) {
-      body = SettingScreen();
+    String? appBarTitle;
+    int x = ref.read(bottomNavigatorProvider.notifier).state;
+    log(x.toString());
+    if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
+      body = TopAnimeWidget();
+      appBarTitle = "msg15".tr(context);
+    } else if (ref.read(bottomNavigatorProvider.notifier).state == 1) {
+      body = TopMangaWidget();
+      appBarTitle = "msg16".tr(context);
+    } else if (ref.read(bottomNavigatorProvider.notifier).state == 2) {
+      body = SearchWidget();
+      appBarTitle = "msg17".tr(context);
+    } else if (ref.read(bottomNavigatorProvider.notifier).state == 3) {
+      body = SettingWidget();
+      appBarTitle = "msg18".tr(context);
     }
 
     return Scaffold(
       backgroundColor: primaryColor,
 
-      appBar: _appBar(),
+      appBar: _appBar(context, appBarTitle),
       body: body,
-      bottomNavigationBar: _bottomnavigation(),
+      bottomNavigationBar: _bottomnavigation(context),
     );
   }
 
   //   bottom navigator
-  BottomNavigationBar _bottomnavigation() {
+  BottomNavigationBar _bottomnavigation(context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
+      currentIndex: ref.watch(bottomNavigatorProvider),
 
       onTap: (index) {
-        _bottomnavigatingpages(index);
+        ref.read(bottomNavigatorProvider.notifier).state = index;
       },
       items: [
         BottomNavigationBarItem(
@@ -74,28 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   //   App Bar
-  AppBar _appBar() {
+  AppBar _appBar(context, appBarTitle) {
     return AppBar(
-      actions: [
-        IconButton(
-          onPressed: () {
-            FirebaseAuth.instance.signOut();
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => LoginScreen()),
-            );
-            SnakeBarMessageWidget().showSuccessSnakeBar(
-              message: "msg19".tr(context),
-              context: context,
-            );
-          },
-          icon: Icon(Icons.logout_rounded, color: Colors.white60),
-        ),
-      ],
-
       leading: Icon(Icons.emoji_events, color: Colors.white60),
 
-      title: Text("msg15".tr(context), style: appTheme.textTheme.bodyMedium),
+      title: Text(appBarTitle),
     );
   }
 }
