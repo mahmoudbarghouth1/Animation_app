@@ -23,7 +23,7 @@ class AnimeViewmodel {
       return true;
     }
 
-    // log(topAnime[0].title);
+    log(topAnime[0].title);
     // log(topanime[0].rank.toString());
     // log(topanime[0].score.toString());
     // log(topanime[0].synopsis);

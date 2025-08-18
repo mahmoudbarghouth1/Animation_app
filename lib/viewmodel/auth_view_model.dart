@@ -21,6 +21,7 @@ class AuthViewModel extends StateNotifier<UserModel?> {
         return true;
       }
     } on FirebaseAuthException catch (e) {
+      
       log(e.code);
       sininErrorMessage = signinErroreMessage(e.code);
       return false;
