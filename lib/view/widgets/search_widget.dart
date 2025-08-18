@@ -8,8 +8,9 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _searchController = TextEditingController();
-
+    TextEditingController searchController = TextEditingController();
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -22,7 +23,7 @@ class SearchWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextFieldWidget(
-                controller: _searchController,
+                controller: searchController,
                 hintText: "search anim or manga",
                 obscureText: false,
                 keyboard: TextInputType.multiline,
@@ -68,7 +69,7 @@ class SearchWidget extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Container(
-              height: 200,
+              height: height * .50,
               padding: EdgeInsets.symmetric(horizontal: 10),
 
               decoration: BoxDecoration(

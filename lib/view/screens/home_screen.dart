@@ -6,6 +6,7 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/view/widgets/search_widget.dart';
 import 'package:sign/view/widgets/setting_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:sign/view/widgets/topanime_widget.dart';
 import 'package:sign/view/widgets/topmanga_widget.dart';
 import 'package:sign/viewmodel/providers.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     Widget? body;
     String? appBarTitle;
     int x = ref.read(bottomNavigatorProvider.notifier).state;
-    log(x.toString());
+    // log(x.toString());
     if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
       body = TopAnimeWidget();
       appBarTitle = "msg15".tr(context);

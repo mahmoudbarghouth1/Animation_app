@@ -1,0 +1,34 @@
+class MangaModel {
+  final String title;
+  final dynamic rank;
+  final dynamic score;
+  final String synopsis;
+  final String imageUrl;
+  final String genres1;
+  // final String genres2;
+  // final String genres3;
+
+  MangaModel({
+    required this.title,
+    required this.rank,
+    required this.score,
+    required this.synopsis,
+    required this.imageUrl,
+    required this.genres1,
+    // required this.genres2,
+    // required this.genres3,
+  });
+
+  factory MangaModel.fromJason(Map<String, dynamic> json) {
+    return MangaModel(
+      title: json["title"],
+      rank: json["rank"],
+      score: json["score"],
+      synopsis: json["synopsis"],
+      imageUrl: json["images"]["jpg"]["image_url"],
+      genres1: (json["genres"]?[0]["name"]) ?? "good",
+      // genres2: (json["genres"]?[1]["name"]) ?? "",
+      // genres3: (json["genres"][1]["name"]) ?? "",
+    );
+  }
+}
