@@ -13,7 +13,7 @@ class MangaCard extends StatelessWidget {
       child: Container(
         height: 130,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: secondryColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -65,7 +65,7 @@ class MangaCard extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
-                            color: secondryColor,
+                            color: primaryColor,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(

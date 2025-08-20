@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sign/core/widgets/loadin_view.dart';
 import 'package:sign/core/widgets/manga_card.dart';
 import 'package:sign/view/screens/manga_anime_view/manga_view.dart';
 // import 'package:sign/viewmodel/manga_view_model.dart';
@@ -10,50 +11,42 @@ class TopMangaWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mangaList = ref.watch(mangaProvider);
+    final mangaList = ref.watch(mangaModelProvider);
 
     return RefreshIndicator(
       onRefresh: () async {
-        await ref.read(mangaProvider.notifier).getdata();
+        ref.invalidate(animeModelProvider);
+        return;
       },
-      child: mangaList.isEmpty
-          ? FutureBuilder(
-              future: ref.read(mangaProvider.notifier).getdata(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text(
-                      ref.read(mangaProvider.notifier).message.toString(),
+      child: mangaList.when(
+        error: (error, stackTrace) {
+          return Center(child: Text(error.toString()));
+        },
+        loading: () {
+          return Center(child: LoadingView());
+        },
+        data: (data) {
+          return ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => MangaView(mangaModel: data[index]),
                     ),
                   );
-                } else {
-                  return Center(child: Text("No data found"));
-                }
-              },
-            )
-          : ListView.builder(
-              itemCount: mangaList.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) =>
-                              MangaView(mangaModel: mangaList[index]),
-                        ),
-                      );
-                    },
-
-                    child: MangaCard(mangaModel: mangaList[index]),
-                  ),
-                );
-              },
-            ),
+                },
+                child: Padding(
+                  padding: EdgeInsetsGeometry.symmetric(vertical: 10),
+                  child: MangaCard(mangaModel: data[index]),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

@@ -10,10 +10,16 @@ class LoadingView extends StatelessWidget {
       child: Padding(
         padding: EdgeInsetsGeometry.all(10),
         child: Center(
-          child: SizedBox(
-            height: 30,
-            width: 30,
-            child: CircularProgressIndicator(color: secondryColor),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(),
+              SizedBox(
+                height: 30,
+                width: 30,
+                child: CircularProgressIndicator(color: secondryColor),
+              ),
+            ],
           ),
         ),
       ),

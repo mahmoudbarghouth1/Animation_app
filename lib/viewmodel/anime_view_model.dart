@@ -1,39 +1,38 @@
 import 'dart:convert';
-
+import 'package:sign/core/network_info.dart';
 import 'package:http/http.dart' as http;
-import 'dart:developer' show log;
+// import 'dart:developer' show log;
 
 import 'package:sign/model/anime_model.dart';
 
 class AnimeViewmodel {
-  List<AnimeModel> topAnimeList = [];
-  Future getdata() async {
+  final NetworkInfo networkInfo;
+  String? message;
+
+  AnimeViewmodel({required this.networkInfo});
+  // List<AnimeModel> topAnimeList = [];
+  Future<List<AnimeModel>> getdata() async {
     final url = Uri.https('api.jikan.moe', '/v4/top/anime');
-    final response = await http.get(
-      url,
-      headers: {"Content-Type": "application/json"},
-    );
-    final jsononDecoded = jsonDecode(response.body);
-    final List lastresponse = jsononDecoded["data"];
-    final List<AnimeModel> topAnime = lastresponse
-        .map((jsonindex) => AnimeModel.fromJason(jsonindex))
-        .toList();
-    if (response.statusCode == 200) {
-      topAnimeList = topAnime;
-      return true;
+
+    if (await networkInfo.isConnected) {
+      final response = await http.get(
+        url,
+        headers: {"Content-Type": "application/json"},
+      );
+      if (response.statusCode == 200) {
+        final jsononDecoded = jsonDecode(response.body);
+        final List lastresponse = jsononDecoded["data"];
+        final List<AnimeModel> topAnime = lastresponse
+            .map((jsonindex) => AnimeModel.fromJason(jsonindex))
+            .toList();
+        return topAnime;
+      } else if (response.statusCode == 400) {
+        throw Exception("Server problem, please try again later.");
+      } else {
+        throw Exception("Unexpected server error: ${response.statusCode}");
+      }
+    } else {
+      throw Exception(" no internet please connect ");
     }
-
-    log(topAnime[0].title);
-    // log(topanime[0].rank.toString());
-    // log(topanime[0].score.toString());
-    // log(topanime[0].synopsis);
-    // log(topanime[0].imageUrl);
-    // log(topanime[0].genres1);
-    // log(topanime[0].genres2);
-    // log(topanime[0].genres3);
-    // log(jsononDecoded.toString());
-
-    // log('Response status: ${response.statusCode}');
-    // log('Response body: ${response.headers}');
   }
 }
