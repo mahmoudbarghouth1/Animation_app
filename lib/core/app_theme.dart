@@ -7,12 +7,15 @@ final appTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: primaryColor,
     //centerTitle: true,
-    titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    titleTextStyle: const TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+    ),
     leadingWidth: 5,
     titleSpacing: 25,
   ),
-  iconTheme: IconThemeData(color: Colors.white70),
-  iconButtonTheme: IconButtonThemeData(
+  iconTheme: const IconThemeData(color: Colors.white70),
+  iconButtonTheme: const IconButtonThemeData(
     style: ButtonStyle(iconAlignment: IconAlignment.start),
   ),
 
@@ -46,7 +49,7 @@ final appTheme = ThemeData(
   //   foregroundColor: secondryColor,
   // ),
   inputDecorationTheme: InputDecorationTheme(
-    hintStyle: TextStyle(
+    hintStyle: const TextStyle(
       color: Colors.white,
       fontSize: 12,
       fontWeight: FontWeight.bold,
@@ -63,7 +66,7 @@ final appTheme = ThemeData(
       borderRadius: BorderRadius.circular(12),
     ),
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyLarge: TextStyle(
       color: Colors.white,
       fontSize: 40,

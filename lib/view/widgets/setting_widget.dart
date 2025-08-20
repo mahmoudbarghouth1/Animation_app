@@ -21,19 +21,19 @@ class _SettingWidgetState extends State<SettingWidget> {
 
         child: Column(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 50,
               backgroundColor: Colors.amber,
               // backgroundImage: ,
             ),
-            SizedBox(height: 10),
-            Text("Anime explorer"),
-            SizedBox(height: 10),
-            Text("memser since 2024"),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
+            const Text("Anime explorer"),
+            const SizedBox(height: 10),
+            const Text("memser since 2024"),
+            const SizedBox(height: 10),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 color: secondryColor,
                 borderRadius: BorderRadius.circular(12),
@@ -41,39 +41,42 @@ class _SettingWidgetState extends State<SettingWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Account", style: appTheme.textTheme.bodySmall),
+                  Text(
+                    "msg29".tr(context),
+                    style: appTheme.textTheme.bodySmall,
+                  ),
                   Row(
                     children: [
                       Text(
-                        "Edite profile",
+                        "msg30".tr(context),
                         style: appTheme.textTheme.bodyMedium,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
+                  const Divider(color: Colors.black, thickness: .5, height: 10),
                   Row(
                     children: [
-                      Text("changing password"),
-                      Spacer(),
+                      Text("msg31".tr(context)),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
+                  const Divider(color: Colors.black, thickness: .5, height: 10),
                   Row(
                     children: [
-                      Text("privacy settings"),
-                      Spacer(),
+                      Text("msg32".tr(context)),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
@@ -81,10 +84,10 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 color: secondryColor,
                 borderRadius: BorderRadius.circular(12),
@@ -92,36 +95,42 @@ class _SettingWidgetState extends State<SettingWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Preferance", style: appTheme.textTheme.bodySmall),
+                  Text(
+                    "msg33".tr(context),
+                    style: appTheme.textTheme.bodySmall,
+                  ),
                   Row(
                     children: [
-                      Text("Dark mode", style: appTheme.textTheme.bodyMedium),
-                      Spacer(),
+                      Text(
+                        "msg34".tr(context),
+                        style: appTheme.textTheme.bodyMedium,
+                      ),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
+                      ),
+                    ],
+                  ),
+                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Row(
+                    children: [
+                      Text("msg37".tr(context)),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
                   Divider(color: Colors.black, thickness: .5, height: 10),
                   Row(
                     children: [
-                      Text("Notifications"),
-                      Spacer(),
+                      Text("msg38".tr(context)),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
-                      ),
-                    ],
-                  ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
-                  Row(
-                    children: [
-                      Text("Auto-playTrails"),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
@@ -129,10 +138,10 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 color: secondryColor,
                 borderRadius: BorderRadius.circular(12),
@@ -140,36 +149,42 @@ class _SettingWidgetState extends State<SettingWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Support", style: appTheme.textTheme.bodySmall),
+                  Text(
+                    "msg39".tr(context),
+                    style: appTheme.textTheme.bodySmall,
+                  ),
                   Row(
                     children: [
-                      Text("Help center", style: appTheme.textTheme.bodyMedium),
-                      Spacer(),
+                      Text(
+                        "msg40".tr(context),
+                        style: appTheme.textTheme.bodyMedium,
+                      ),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
+                  const Divider(color: Colors.black, thickness: .5, height: 10),
                   Row(
                     children: [
-                      Text("Report a Bug"),
-                      Spacer(),
+                      Text("msg42".tr(context)),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
+                  const Divider(color: Colors.black, thickness: .5, height: 10),
                   Row(
                     children: [
-                      Text("Rate App"),
-                      Spacer(),
+                      Text("msg43".tr(context)),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.arrow_right_alt_outlined),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
@@ -177,7 +192,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             SizedBox(
               width: double.infinity,
@@ -194,7 +209,10 @@ class _SettingWidgetState extends State<SettingWidget> {
                     context: context,
                   );
                 },
-                child: Text("sign out", style: appTheme.textTheme.bodyMedium),
+                child: Text(
+                  "msg44".tr(context),
+                  style: appTheme.textTheme.bodyMedium,
+                ),
               ),
             ),
           ],

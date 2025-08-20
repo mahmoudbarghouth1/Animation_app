@@ -9,7 +9,7 @@ class MangaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         height: 130,
         decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class MangaCard extends StatelessWidget {
                 width: 100,
                 child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
 
               Expanded(
                 child: Column(
@@ -36,14 +36,14 @@ class MangaCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Icon(Icons.star_purple500, color: Colors.amber),
+                        const Icon(Icons.star_purple500, color: Colors.amber),
                         SizedBox(width: 2),
                         Text(
                           mangaModel.score.toString(),
-                          style: TextStyle(color: Colors.amberAccent),
+                          style: const TextStyle(color: Colors.amberAccent),
                         ),
                       ],
                     ),
@@ -59,11 +59,11 @@ class MangaCard extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                             color: primaryColor,
                             borderRadius: BorderRadius.circular(10),

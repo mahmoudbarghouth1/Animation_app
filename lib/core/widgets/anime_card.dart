@@ -9,7 +9,7 @@ class AnimeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         height: 130,
         decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class AnimeCard extends StatelessWidget {
                 width: 100,
                 child: Image.network(animeModel.imageUrl, fit: BoxFit.fill),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
 
               Expanded(
                 child: Column(
@@ -36,11 +36,11 @@ class AnimeCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Icon(Icons.star_purple500, color: Colors.amber),
-                        SizedBox(width: 2),
+                        const Icon(Icons.star_purple500, color: Colors.amber),
+                        const SizedBox(width: 2),
                         Text(
                           animeModel.score.toString(),
                           style: TextStyle(color: Colors.amberAccent),
@@ -59,11 +59,11 @@ class AnimeCard extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                             color: primaryColor,
                             borderRadius: BorderRadius.circular(10),
@@ -97,7 +97,7 @@ class AnimeCard extends StatelessWidget {
                         //     style: appTheme.textTheme.bodySmall,
                         //   ),
                         // ),
-                        SizedBox(width: 2),
+                        const SizedBox(width: 2),
                       ],
                     ),
                   ],

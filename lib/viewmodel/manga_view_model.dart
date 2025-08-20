@@ -13,7 +13,7 @@ class ManagaViewModel {
   ManagaViewModel({required this.networkInfo});
 
   Future<List<MangaModel>> getdata() async {
-    final url = Uri.https('api.jikan.moe', '/v4/top/anime');
+    final url = Uri.https('api.jikan.moe', '/v4/top/manga');
 
     if (await networkInfo.isConnected) {
       final response = await http.get(

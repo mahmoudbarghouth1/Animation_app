@@ -47,13 +47,13 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
             child: Column(
               children: [
                 //image
-                AppImage(),
-                SizedBox(height: 20),
+                const AppImage(),
+                const SizedBox(height: 20),
                 //title text
                 Text("msg9".tr(context), style: appTheme.textTheme.bodyLarge),
                 //sub title text
                 Text("msg10".tr(context), style: appTheme.textTheme.bodyMedium),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 //email text field
                 Container(
                   decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
                     color: secondryColor,
@@ -87,7 +87,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 //pasword textfield
                 Container(
                   decoration: BoxDecoration(
@@ -104,7 +104,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
                     color: secondryColor,
@@ -120,7 +120,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 //terms of policy
                 CheckboxFormField(
                   title: "msg13".tr(context),
@@ -132,7 +132,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 //signin button
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -181,7 +181,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 //sinup text
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -190,7 +190,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       "msg14".tr(context),
                       style: appTheme.textTheme.bodySmall,
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(

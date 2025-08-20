@@ -25,8 +25,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     Widget? body;
     String? appBarTitle;
-    int x = ref.read(bottomNavigatorProvider.notifier).state;
-    // log(x.toString());
+    // int x = ref.read(bottomNavigatorProvider.notifier).state;
+    // // log(x.toString());
     if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
       body = TopAnimeWidget();
       appBarTitle = "msg15".tr(context);
@@ -61,19 +61,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       },
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.emoji_events),
+          icon: const Icon(Icons.emoji_events),
           label: "msg15".tr(context),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.folder_copy),
+          icon: const Icon(Icons.folder_copy),
           label: "msg16".tr(context),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: const Icon(Icons.search),
           label: "msg17".tr(context),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
+          icon: const Icon(Icons.settings),
           label: "msg18".tr(context),
         ),
       ],
@@ -83,7 +83,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   //   App Bar
   AppBar _appBar(context, appBarTitle) {
     return AppBar(
-      leading: Icon(Icons.emoji_events, color: Colors.white60),
+      leading: const Icon(Icons.emoji_events, color: Colors.white60),
 
       title: Text(appBarTitle),
     );

@@ -13,7 +13,7 @@ class AnimeView extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+            padding: const EdgeInsetsGeometry.symmetric(horizontal: 20),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,48 +23,48 @@ class AnimeView extends StatelessWidget {
                     width: 150,
                     child: Image.network(animeModel.imageUrl, fit: BoxFit.fill),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(animeModel.title, maxLines: 1),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           color: secondryColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(
                           children: [
-                            Icon(Icons.star, color: Colors.amber),
-                            SizedBox(width: 5),
+                            const Icon(Icons.star, color: Colors.amber),
+                            const SizedBox(width: 5),
                             Text(animeModel.rank.toString()),
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           color: secondryColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(animeModel.score.toString()),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           color: secondryColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text("9.1"),
+                        child: const Text("9.1"),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                     width: 300,
 
@@ -76,7 +76,7 @@ class AnimeView extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {},
-                      child: Text("ADD To Favorit"),
+                      child: const Text("ADD To Favorit"),
                     ),
                   ),
                   Column(
@@ -84,19 +84,19 @@ class AnimeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Text("Synoposis "),
-                      SizedBox(height: 10),
+                      const Text("Synoposis "),
+                      const SizedBox(height: 10),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: const Color.fromARGB(255, 19, 28, 111),
                         ),
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
 
                         child: Text(
                           animeModel.synopsis,
                           maxLines: 10,
-                          style: TextStyle(color: Colors.white54),
+                          style: const TextStyle(color: Colors.white54),
                         ),
                       ),
                     ],
@@ -107,15 +107,15 @@ class AnimeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Text("Information"),
-                      SizedBox(height: 10),
+                      const Text("Information"),
+                      const SizedBox(height: 10),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: const Color.fromARGB(255, 19, 28, 111),
                         ),
                         height: 250,
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
 
                         child: GridView(
                           gridDelegate:
@@ -127,47 +127,59 @@ class AnimeView extends StatelessWidget {
                               ),
                           children: [
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: primaryColor,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [Text("Type"), Text("TV Series")],
+                                children: [
+                                  const Text("Type"),
+                                  const Text("TV Series"),
+                                ],
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: primaryColor,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [Text("Type"), Text("TV Series")],
+                                children: [
+                                  const Text("Type"),
+                                  const Text("TV Series"),
+                                ],
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: primaryColor,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [Text("Type"), Text("TV Series")],
+                                children: [
+                                  const Text("Type"),
+                                  const Text("TV Series"),
+                                ],
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: primaryColor,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [Text("Type"), Text("TV Series")],
+                                children: [
+                                  const Text("Type"),
+                                  const Text("TV Series"),
+                                ],
                               ),
                             ),
                           ],
@@ -181,10 +193,10 @@ class AnimeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Text("Geners "),
-                      SizedBox(height: 10),
+                      const Text("Geners "),
+                      const SizedBox(height: 10),
                       Container(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: const Color.fromARGB(255, 19, 28, 111),
@@ -194,7 +206,9 @@ class AnimeView extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                              ),
                               decoration: BoxDecoration(
                                 color: primaryColor,
                                 borderRadius: BorderRadius.circular(10),
@@ -206,21 +220,21 @@ class AnimeView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-                      Text("Media"),
-                      SizedBox(height: 10),
+                      const Text("Media"),
+                      const SizedBox(height: 10),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: const Color.fromARGB(255, 19, 28, 111),
                         ),
                         height: 500,
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                       ),
                     ],
                   ),

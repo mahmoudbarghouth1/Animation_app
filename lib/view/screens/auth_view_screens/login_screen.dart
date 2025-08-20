@@ -44,7 +44,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 children: [
                   //image
                   AppImage(),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   //title text
                   Text("msg1".tr(context), style: appTheme.textTheme.bodyLarge),
                   //sub title text
@@ -52,7 +52,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     "msg2".tr(context),
                     style: appTheme.textTheme.bodyMedium,
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   //email text field
                   Container(
                     decoration: BoxDecoration(
@@ -69,7 +69,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   //pasword textfield
                   Container(
                     decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -132,10 +132,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   //signin button
                   Text("msg6".tr(context), style: appTheme.textTheme.bodySmall),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   //sinup text
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -144,7 +144,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         "msg7".tr(context),
                         style: appTheme.textTheme.bodySmall,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(

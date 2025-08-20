@@ -8,7 +8,7 @@ class LoadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsetsGeometry.all(10),
+        padding: const EdgeInsetsGeometry.all(10),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

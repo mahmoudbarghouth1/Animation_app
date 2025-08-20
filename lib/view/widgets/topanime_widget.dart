@@ -14,15 +14,14 @@ class TopAnimeWidget extends ConsumerWidget {
 
     return RefreshIndicator(
       onRefresh: () async {
-        ref.invalidate(animeModelProvider);
-        return;
+        return await ref.refresh(mangaViewModelProvider);
       },
       child: animeList.when(
         error: (error, stackTrace) {
           return Center(child: Text(error.toString()));
         },
         loading: () {
-          return Center(child: LoadingView());
+          return Center(child: const LoadingView());
         },
         data: (data) {
           return ListView.builder(
@@ -38,7 +37,7 @@ class TopAnimeWidget extends ConsumerWidget {
                   );
                 },
                 child: Padding(
-                  padding: EdgeInsetsGeometry.symmetric(vertical: 10),
+                  padding: const EdgeInsetsGeometry.symmetric(vertical: 10),
                   child: AnimeCard(animeModel: data[index]),
                 ),
               );

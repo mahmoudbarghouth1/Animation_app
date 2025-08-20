@@ -19,7 +19,7 @@ class CheckboxFormField extends FormField<bool> {
                  },
                  title: Text(
                    title,
-                   style: TextStyle(
+                   style: const TextStyle(
                      fontSize: 15,
                      fontWeight: FontWeight.bold,
                      color: Colors.white,
@@ -32,7 +32,7 @@ class CheckboxFormField extends FormField<bool> {
                    padding: const EdgeInsets.only(left: 12.0),
                    child: Text(
                      state.errorText ?? '',
-                     style: TextStyle(
+                     style: const TextStyle(
                        color: Colors.redAccent,
                        fontSize: 12,
                        fontWeight: FontWeight.bold,

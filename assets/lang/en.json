@@ -21,7 +21,28 @@
     "msg20":"sined In successfully",
     "msg21":"You must accept the terms",
     "msg22":"signed up successfully sign in now ",
-    "msg23":"pasword does not mach"
+    "msg23":"pasword does not mach",
+    
+    "msg24":"anime",
+    "msg25":"manga",
+    "msg26":"Start Your Search",
+    "msg27": "Enter keywords to find your anime or manga",
+    "msg28":"search anim or manga",
+    "msg29":"Account",
+    "msg30":"Edite profile",
+    "msg31":"changing password",
+    "msg32":"privacy settings",
+    "msg33":"Preferance",
+    "msg34":"Dark mode",
+    "msg37":"Notifications",
+    "msg38":"Auto-playTrails",
+    "msg39":"Support",
+    "msg40":"Help center",
+    "msg42":"Report a Bug",
+    "msg43":"Rate App",
+    "msg44":"sign out"
+    
+    
    
    
 
