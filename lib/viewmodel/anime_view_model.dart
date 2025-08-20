@@ -36,3 +36,130 @@ class AnimeViewmodel {
     }
   }
 }
+
+// things that could be done:
+
+// 1. Create proper interfaces for better testability
+// abstract class IAnimeRepository {
+//   Future<List<AnimeModel>> getTopAnime();
+// }
+
+// abstract class IAnimeViewModel {
+//   Future<void> fetchTopAnime();
+//   AnimeState get state;
+// }
+
+// 2. Create proper state management
+// sealed class AnimeState {
+//   const AnimeState();
+// }
+
+// class AnimeInitial extends AnimeState {}
+// class AnimeLoading extends AnimeState {}
+// class AnimeLoaded extends AnimeState {
+//   final List<AnimeModel> animeList;
+//   const AnimeLoaded(this.animeList);
+// }
+// class AnimeError extends AnimeState {
+//   final String message;
+//   const AnimeError(this.message);
+// }
+
+// 3. Create constants for API configuration
+// class ApiConstants {
+//   static const String baseUrl = 'https://api.jikan.moe';
+//   static const String topAnimeEndpoint = '/v4/top/anime';
+//   static const String contentType = 'application/json';
+//   static const int successStatusCode = 200;
+//   static const int badRequestStatusCode = 400;
+// }
+
+// 4. Improved repository implementation
+// class AnimeRepository implements IAnimeRepository {
+//   final http.Client _httpClient;
+//   final NetworkInfo _networkInfo;
+  
+//   AnimeRepository({
+//     required http.Client httpClient,
+//     required NetworkInfo networkInfo,
+//   }) : _httpClient = httpClient, _networkInfo = networkInfo;
+  
+//   @override
+//   Future<List<AnimeModel>> getTopAnime() async {
+//     if (!await _networkInfo.isConnected) {
+//       throw const NetworkException('No internet connection. Please connect.');
+//     }
+    
+//     try {
+//       final url = Uri.https(ApiConstants.baseUrl, ApiConstants.topAnimeEndpoint);
+//       final response = await _httpClient.get(
+//         url,
+//         headers: {HttpHeaders.contentTypeHeader: ApiConstants.contentType},
+//       );
+      
+//       if (response.statusCode == ApiConstants.successStatusCode) {
+//         final jsonDecoded = jsonDecode(response.body);
+//         final List<dynamic> data = jsonDecoded['data'] as List<dynamic>;
+//         
+//         return data.map((json) => AnimeModel.fromJson(json)).toList();
+//       } else if (response.statusCode == ApiConstants.badRequestStatusCode) {
+//         throw const ServerException('Server problem, please try again later.');
+//       } else {
+//         throw ServerException('Unexpected server error: ${response.statusCode}');
+//       }
+//     } on FormatException {
+//       throw const DataException('Invalid data format received from server.');
+//     } catch (e) {
+//       if (e is NetworkException || e is ServerException || e is DataException) {
+//         rethrow;
+//       }
+//       throw const DataException('An unexpected error occurred.');
+//     }
+//   }
+// }
+
+// 5. Improved ViewModel with proper MVVM
+// class AnimeViewModel extends StateNotifier<AnimeState> implements IAnimeViewModel {
+//   final IAnimeRepository _repository;
+  
+//   AnimeViewModel(this._repository) : super(AnimeInitial());
+  
+//   @override
+//   Future<void> fetchTopAnime() async {
+//     state = AnimeLoading();
+//     try {
+//       final animeList = await _repository.getTopAnime();
+//       state = AnimeLoaded(animeList);
+//     } catch (e) {
+//       state = AnimeError(e.toString());
+//     }
+//   }
+  
+//   @override
+//   AnimeState get state => super.state;
+// }
+
+// 6. Custom exceptions for better error handling
+// class NetworkException implements Exception {
+//   final String message;
+//   const NetworkException(this.message);
+  
+//   @override
+//   String toString() => message;
+// }
+
+// class ServerException implements Exception {
+//   final String message;
+//   const ServerException(this.message);
+  
+//   @override
+//   String toString() => message;
+// }
+
+// class DataException implements Exception {
+//   final String message;
+//   const DataException(this.message);
+  
+//   @override
+//   String toString() => message;
+// }

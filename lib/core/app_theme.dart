@@ -84,3 +84,133 @@ final appTheme = ThemeData(
     ),
   ),
 );
+
+// things that could be done:
+
+// 1. Fix typo and create proper color constants
+// class AppColors {
+//   static const Color primary = Color.fromARGB(255, 11, 21, 73);
+//   static const Color secondary = Color.fromARGB(255, 72, 97, 219);
+//   static const Color white = Colors.white;
+//   static const Color white70 = Colors.white70;
+//   static const Color white30 = Colors.white30;
+//   static const Color transparent = Colors.transparent;
+// }
+
+// 2. Create dimension constants
+// class AppDimensions {
+//   static const double leadingWidth = 5.0;
+//   static const double titleSpacing = 25.0;
+//   static const double borderRadius = 12.0;
+//   static const double smallBorderRadius = 10.0;
+//   static const double elevation = 0.9;
+//   static const double padding = 8.0;
+//   static const double spacing = 10.0;
+//   static const double largeSpacing = 20.0;
+// }
+
+// 3. Create text size constants
+// class AppTextSizes {
+//   static const double large = 40.0;
+//   static const double medium = 18.0;
+//   static const double small = 12.0;
+// }
+
+// 4. Create border radius constants
+// class AppRadius {
+//   static const BorderRadius medium = BorderRadius.all(Radius.circular(12.0));
+//   static const BorderRadius small = BorderRadius.all(Radius.circular(10.0));
+// }
+
+// 5. Improved theme with constants
+// final appTheme = ThemeData(
+//   appBarTheme: AppBarTheme(
+//     backgroundColor: AppColors.primary,
+//     titleTextStyle: const TextStyle(
+//       color: AppColors.white,
+//       fontWeight: FontWeight.bold,
+//     ),
+//     leadingWidth: AppDimensions.leadingWidth,
+//     titleSpacing: AppDimensions.titleSpacing,
+//   ),
+//   iconTheme: const IconThemeData(color: AppColors.white70),
+//   iconButtonTheme: const IconButtonThemeData(
+//     style: ButtonStyle(iconAlignment: IconAlignment.start),
+//   ),
+//   buttonTheme: ButtonThemeData(
+//     buttonColor: AppColors.secondary,
+//     shape: RoundedRectangleBorder(
+//       borderRadius: AppRadius.medium,
+//     ),
+//   ),
+//   bottomNavigationBarTheme: BottomNavigationBarThemeData(
+//     type: BottomNavigationBarType.fixed,
+//     elevation: AppDimensions.elevation,
+//     backgroundColor: AppColors.primary,
+//     selectedItemColor: AppColors.white70,
+//     showSelectedLabels: true,
+//     unselectedItemColor: AppColors.white30,
+//     showUnselectedLabels: true,
+//   ),
+//   primaryColor: AppColors.primary,
+//   colorScheme: ColorScheme.light(primary: AppColors.primary),
+//   progressIndicatorTheme: ProgressIndicatorThemeData(color: AppColors.primary),
+//   inputDecorationTheme: InputDecorationTheme(
+//     hintStyle: const TextStyle(
+//       color: AppColors.white,
+//       fontSize: AppTextSizes.small,
+//       fontWeight: FontWeight.bold,
+//     ),
+//     floatingLabelStyle: TextStyle(color: AppColors.primary, fontSize: AppTextSizes.small),
+//     iconColor: AppColors.secondary,
+//     border: InputBorder.none,
+//     filled: true,
+//     fillColor: AppColors.secondary,
+//     focusedBorder: OutlineInputBorder(
+//       borderSide: BorderSide(color: AppColors.secondary),
+//       borderRadius: AppRadius.medium,
+//     ),
+//   ),
+//   textTheme: const TextTheme(
+//     bodyLarge: TextStyle(
+//       color: AppColors.white,
+//       fontSize: AppTextSizes.large,
+//       fontWeight: FontWeight.bold,
+//     ),
+//     bodyMedium: TextStyle(
+//       color: AppColors.white,
+//       fontSize: AppTextSizes.medium,
+//       fontWeight: FontWeight.bold,
+//     ),
+//     bodySmall: TextStyle(
+//       color: AppColors.white,
+//       fontSize: AppTextSizes.small,
+//       fontWeight: FontWeight.bold,
+//     ),
+//   ),
+// );
+
+// 6. Add dark theme support
+// final appDarkTheme = ThemeData(
+//   brightness: Brightness.dark,
+//   primaryColor: AppColors.primary,
+//   colorScheme: ColorScheme.dark(primary: AppColors.primary),
+//   // ... rest of dark theme configuration
+// );
+
+// 7. Add theme switching capability
+// class AppTheme {
+//   static ThemeData get lightTheme => appTheme;
+//   static ThemeData get darkTheme => appDarkTheme;
+//   
+//   static ThemeData getTheme(ThemeMode mode) {
+//     switch (mode) {
+//       case ThemeMode.light:
+//         return lightTheme;
+//       case ThemeMode.dark:
+//         return darkTheme;
+//       case ThemeMode.system:
+//         return lightTheme; // Default to light for now
+//     }
+//   }
+// }
