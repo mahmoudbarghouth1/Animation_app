@@ -165,7 +165,10 @@ final appTheme = ThemeData(
     showUnselectedLabels: true,
   ),
   primaryColor: AppColors.primary,
-  colorScheme: ColorScheme.light(primary: AppColors.primary),
+  colorScheme: ColorScheme.light(
+    primary: AppColors.primary,
+    secondary: AppColors.secondary,
+  ),
   progressIndicatorTheme: ProgressIndicatorThemeData(color: AppColors.primary),
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: const TextStyle(
@@ -214,53 +217,55 @@ final appDarkTheme = ThemeData(
   brightness: Brightness.dark,
   iconTheme: const IconThemeData(color: AppColors.white70),
   primaryColor: AppColors.primary,
-  colorScheme: ColorScheme.dark(primary: AppColors.primary),
-  appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.secondary,
-    titleTextStyle: const TextStyle(
-      color: AppColors.white,
-      fontWeight: FontWeight.bold,
-    ),
-    leadingWidth: AppDimensions.leadingWidth,
-    titleSpacing: AppDimensions.titleSpacing,
+  colorScheme: ColorScheme.dark(
+    primary: AppColors.primary,
+    secondary: AppColors.secondary,
   ),
-  buttonTheme: ButtonThemeData(
-    buttonColor: AppColors.white70,
+  // appBarTheme: AppBarTheme(
+  //   titleTextStyle: const TextStyle(
+  //     color: AppColors.white,
+  //     fontWeight: FontWeight.bold,
+  //   ),
+  //   leadingWidth: AppDimensions.leadingWidth,
+  //   titleSpacing: AppDimensions.titleSpacing,
+  // // ),
+  // buttonTheme: ButtonThemeData(
+  //   buttonColor: AppColors.white70,
 
-    shape: RoundedRectangleBorder(borderRadius: AppRadius.medium),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: AppColors.secondary,
-      elevation: .9,
-      iconColor: AppColors.white,
-      foregroundColor: AppColors.primary,
-    ),
-  ),
-  // floatingActionButtonTheme: FloatingActionButtonThemeData(
-  //   backgroundColor: AppColors.secondary,
-  //   foregroundColor: AppColors.white,
-  //   focusElevation: .5,
+  //   shape: RoundedRectangleBorder(borderRadius: AppRadius.medium),
   // ),
-  inputDecorationTheme: InputDecorationTheme(
-    hintStyle: const TextStyle(
-      color: AppColors.white,
-      fontSize: AppTextSizes.small,
-      fontWeight: FontWeight.bold,
-    ),
-    floatingLabelStyle: TextStyle(
-      color: AppColors.secondary,
-      fontSize: AppTextSizes.small,
-    ),
-    iconColor: AppColors.secondary,
-    border: InputBorder.none,
-    filled: true,
-    fillColor: AppColors.secondary,
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: AppColors.secondary),
-      borderRadius: AppRadius.medium,
-    ),
-  ),
+  // elevatedButtonTheme: ElevatedButtonThemeData(
+  //   style: ElevatedButton.styleFrom(
+  //     backgroundColor: AppColors.secondary,
+  //     elevation: .9,
+  //     iconColor: AppColors.white,
+  //     foregroundColor: AppColors.primary,
+  //   ),
+  // ),
+  // // floatingActionButtonTheme: FloatingActionButtonThemeData(
+  // //   backgroundColor: AppColors.secondary,
+  // //   foregroundColor: AppColors.white,
+  // //   focusElevation: .5,
+  // // ),
+  // inputDecorationTheme: InputDecorationTheme(
+  //   hintStyle: const TextStyle(
+  //     color: AppColors.white,
+  //     fontSize: AppTextSizes.small,
+  //     fontWeight: FontWeight.bold,
+  //   ),
+  //   floatingLabelStyle: TextStyle(
+  //     color: AppColors.secondary,
+  //     fontSize: AppTextSizes.small,
+  //   ),
+  //   iconColor: AppColors.secondary,
+  //   border: InputBorder.none,
+  //   filled: true,
+  //   fillColor: AppColors.secondary,
+  //   focusedBorder: OutlineInputBorder(
+  //     borderSide: BorderSide(color: AppColors.secondary),
+  //     borderRadius: AppRadius.medium,
+  //   ),
+  // ),
 );
 
 // 7. Add theme switching capability
