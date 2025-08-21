@@ -35,7 +35,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -89,7 +89,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -143,7 +143,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(

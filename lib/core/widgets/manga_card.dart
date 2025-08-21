@@ -8,12 +8,15 @@ class MangaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+    // final screenOrintation = MediaQuery.of(context).orientation;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: w * (10 / 370)),
       child: Container(
         height: 130,
         decoration: BoxDecoration(
-          color: secondryColor,
+          color: AppColors.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -21,10 +24,10 @@ class MangaCard extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                width: 100,
+                width: w * (100 / 400),
                 child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
               ),
-              const SizedBox(width: 5),
+              SizedBox(width: w * (5 / 400)),
 
               Expanded(
                 child: Column(
@@ -36,11 +39,11 @@ class MangaCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: h * (10 / 800)),
                     Row(
                       children: [
                         const Icon(Icons.star_purple500, color: Colors.amber),
-                        SizedBox(width: 2),
+                        SizedBox(width: w * (2 / 400)),
                         Text(
                           mangaModel.score.toString(),
                           style: const TextStyle(color: Colors.amberAccent),
@@ -59,13 +62,15 @@ class MangaCard extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 5),
+                    SizedBox(height: w * (5 / 400)),
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: w * (10 / 400),
+                          ),
                           decoration: BoxDecoration(
-                            color: primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(

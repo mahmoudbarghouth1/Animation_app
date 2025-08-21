@@ -9,7 +9,6 @@ class MangaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -33,7 +32,7 @@ class MangaView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.primary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(
@@ -48,7 +47,7 @@ class MangaView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
@@ -60,7 +59,7 @@ class MangaView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text("tv"),
@@ -133,7 +132,7 @@ class MangaView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +146,7 @@ class MangaView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +160,7 @@ class MangaView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +174,7 @@ class MangaView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +212,7 @@ class MangaView extends StatelessWidget {
                                 horizontal: 10,
                               ),
                               decoration: BoxDecoration(
-                                color: primaryColor,
+                                color: AppColors.primary,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Text(mangaModel.genres1),

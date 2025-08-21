@@ -9,7 +9,6 @@ class AnimeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -33,7 +32,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(
@@ -48,7 +47,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(animeModel.score.toString()),
@@ -57,7 +56,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: secondryColor,
+                          color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Text("9.1"),
@@ -71,9 +70,9 @@ class AnimeView extends StatelessWidget {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(10),
-                        ),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadiusGeometry.circular(10),
+                        // ),
                       ),
                       onPressed: () {},
                       child: const Text("ADD To Favorit"),
@@ -89,7 +88,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 19, 28, 111),
+                          color: AppColors.primary,
                         ),
                         padding: const EdgeInsets.all(15),
 
@@ -130,7 +129,7 @@ class AnimeView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,7 +143,7 @@ class AnimeView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,7 +157,7 @@ class AnimeView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +171,7 @@ class AnimeView extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: primaryColor,
+                                color: AppColors.primary,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,7 +209,7 @@ class AnimeView extends StatelessWidget {
                                 horizontal: 10,
                               ),
                               decoration: BoxDecoration(
-                                color: primaryColor,
+                                color: AppColors.primary,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Text(animeModel.genres1),

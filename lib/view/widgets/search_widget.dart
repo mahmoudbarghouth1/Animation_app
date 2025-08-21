@@ -10,16 +10,16 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
     // final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
         child: Column(
           children: [
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextFieldWidget(
@@ -35,7 +35,7 @@ class SearchWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 1),
               // margin: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -52,7 +52,7 @@ class SearchWidget extends StatelessWidget {
                       child: Text("msg24".tr(context)),
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -61,19 +61,18 @@ class SearchWidget extends StatelessWidget {
                         color: const Color.fromARGB(255, 13, 4, 63),
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child:  Text("msg25".tr(context)),
+                      child: Text("msg25".tr(context)),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              height: height * .50,
               padding: const EdgeInsets.symmetric(horizontal: 10),
 
               decoration: BoxDecoration(
-                color: secondryColor,
+                color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(20),
               ),
 
@@ -84,12 +83,10 @@ class SearchWidget extends StatelessWidget {
                   children: [
                     const Icon(Icons.search_sharp, size: 50),
                     const SizedBox(height: 10),
-                     Text("msg26".tr(context)),
+                    Text("msg26".tr(context)),
                     const SizedBox(height: 10),
-                     Text(
-                     "msg27".tr(context),
-                      textAlign: TextAlign.center,
-                    ),
+                    Text("msg27".tr(context), textAlign: TextAlign.center),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),

@@ -39,6 +39,8 @@ class MyApp extends StatelessWidget {
         return supportedLocales.first;
       },
       theme: appTheme,
+      darkTheme: appDarkTheme,
+      themeMode: ThemeMode.system,
       home: const Auth(),
     );
   }

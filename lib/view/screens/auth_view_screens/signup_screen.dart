@@ -34,7 +34,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: primaryColor, body: _body(context));
+    return Scaffold(body: _body(context));
   }
 
   SafeArea _body(BuildContext context) {
@@ -57,7 +57,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 //email text field
                 Container(
                   decoration: BoxDecoration(
-                    color: secondryColor,
+                    color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
 
@@ -74,7 +74,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
-                    color: secondryColor,
+                    color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -91,7 +91,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 //pasword textfield
                 Container(
                   decoration: BoxDecoration(
-                    color: secondryColor,
+                    color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -107,7 +107,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
-                    color: secondryColor,
+                    color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -135,9 +135,6 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 const SizedBox(height: 10),
                 //signin button
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: secondryColor,
-                  ),
                   onPressed: () async {
                     final userViewModel = ref.read(
                       authViewerModelProvider.notifier,

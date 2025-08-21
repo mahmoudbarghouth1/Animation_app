@@ -13,7 +13,7 @@ class AnimeCard extends StatelessWidget {
       child: Container(
         height: 130,
         decoration: BoxDecoration(
-          color: secondryColor,
+          color: AppColors.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -65,7 +65,7 @@ class AnimeCard extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
-                            color: primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(

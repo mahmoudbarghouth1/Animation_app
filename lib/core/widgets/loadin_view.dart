@@ -17,7 +17,7 @@ class LoadingView extends StatelessWidget {
               SizedBox(
                 height: 30,
                 width: 30,
-                child: CircularProgressIndicator(color: secondryColor),
+                child: CircularProgressIndicator(color: AppColors.secondary),
               ),
             ],
           ),

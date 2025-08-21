@@ -31,7 +31,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -56,7 +55,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   //email text field
                   Container(
                     decoration: BoxDecoration(
-                      color: secondryColor,
+                      color: AppColors.secondary,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -73,7 +72,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   //pasword textfield
                   Container(
                     decoration: BoxDecoration(
-                      color: secondryColor,
+                      color: AppColors.secondary,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -90,13 +89,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: secondryColor,
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(12),
-                        ),
-                      ),
                       onPressed: () async {
                         final userviewmodle = ref.read(
                           authViewerModelProvider.notifier,

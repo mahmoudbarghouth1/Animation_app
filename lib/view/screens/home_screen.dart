@@ -33,7 +33,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     } else if (ref.read(bottomNavigatorProvider.notifier).state == 1) {
       body = TopMangaWidget();
       appBarTitle = "msg16".tr(context);
-    } else if (ref.read(bottomNavigatorProvider.notifier).state == 1) {
+    } else if (ref.read(bottomNavigatorProvider.notifier).state == 2) {
       body = SearchWidget();
       appBarTitle = "msg17".tr(context);
     } else if (ref.read(bottomNavigatorProvider.notifier).state == 3) {
@@ -42,8 +42,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
 
     return Scaffold(
-      backgroundColor: primaryColor,
-
       appBar: _appBar(context, appBarTitle),
       body: body,
       bottomNavigationBar: _bottomnavigation(context),
@@ -136,20 +134,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 //   }
 // }
 
-// 4. Fix the bug in navigation logic (search tab should be index 2, not 1)
-// if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
-//   body = TopAnimeWidget();
-//   appBarTitle = "msg15".tr(context);
-// } else if (ref.read(bottomNavigatorProvider.notifier).state == 1) {
-//   body = TopMangaWidget();
-//   appBarTitle = "msg16".tr(context);
-// } else if (ref.read(bottomNavigatorProvider.notifier).state == 2) { // Fixed: was 1
-//   body = SearchWidget();
-//   appBarTitle = "msg17".tr(context);
-// } else if (ref.read(bottomNavigatorProvider.notifier).state == 3) {
-//   body = SettingWidget();
-//   appBarTitle = "msg18".tr(context);
-// }
+
 
 // 5. Extract bottom navigation to separate widget
 // class _BottomNavigation extends ConsumerWidget {
