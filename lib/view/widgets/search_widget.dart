@@ -18,7 +18,7 @@ class SearchWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.r),
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
                 borderRadius: AppRadius.medium,
@@ -33,7 +33,7 @@ class SearchWidget extends StatelessWidget {
             SizedBox(height: 20.h),
             Container(
               // margin: EdgeInsets.all(2),
-              padding: EdgeInsets.symmetric(vertical: .5.h),
+              padding: EdgeInsets.symmetric(horizontal: .5.w),
               // margin: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
@@ -46,24 +46,25 @@ class SearchWidget extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 2.w),
+                      // margin: EdgeInsets.symmetric(horizontal: 2.w),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.r),
+                        borderRadius: BorderRadius.circular(3.r),
                         color: AppColors.primary,
                       ),
                       padding: EdgeInsets.symmetric(horizontal: 57.w),
                       child: Text("msg24".tr(context)),
                     ),
                   ),
-                  SizedBox(width: 1.w),
+                  SizedBox(width: .1.w),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
+                      // width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(3.r),
                         color: AppColors.primary,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 55.w),
+                      padding: EdgeInsets.symmetric(horizontal: 57.w),
                       child: Text("msg25".tr(context)),
                     ),
                   ),

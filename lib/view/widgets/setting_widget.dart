@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
+import 'package:sign/view/screens/auth_view_screens/change_password.dart';
 import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
 
 class SettingWidget extends StatefulWidget {
@@ -65,7 +66,11 @@ class _SettingWidgetState extends State<SettingWidget> {
                       Text("msg31".tr(context)),
                       const Spacer(),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => ChangePassword()),
+                          );
+                        },
                         child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],

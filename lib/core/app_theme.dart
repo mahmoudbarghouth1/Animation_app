@@ -89,10 +89,12 @@ import 'package:flutter/material.dart';
 
 // 1. Fix typo and create proper color constants
 class AppColors {
-  static const Color primary = Color.fromARGB(255, 11, 21, 73);
-  static const Color secondary = Color.fromARGB(255, 72, 97, 219);
+  // static const Color primary = Color.fromARGB(255, 11, 21, 73);
+  static const Color primary = Color(0xff0f1629);
+  // static const Color secondary = Color.fromARGB(255, 72, 97, 219);
+  static const Color secondary = Color(0xff31329d);
   static const Color white = Colors.white;
-    static const Color white54 = Colors.white54;
+  static const Color white54 = Colors.white54;
   static const Color white70 = Colors.white70;
   static const Color white30 = Colors.white30;
   static const Color transparent = Colors.transparent;
@@ -184,11 +186,17 @@ final appTheme = ThemeData(
       fontSize: AppTextSizes.small,
     ),
     iconColor: AppColors.secondary,
-    border: InputBorder.none,
+    border: OutlineInputBorder(
+      borderSide: BorderSide.none,
+      borderRadius: AppRadius.medium,
+    ),
     filled: true,
     fillColor: AppColors.secondary,
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: AppColors.secondary),
+      borderSide: BorderSide(
+        color: const Color.fromARGB(255, 6, 10, 75),
+        width: 1,
+      ),
       borderRadius: AppRadius.medium,
     ),
   ),

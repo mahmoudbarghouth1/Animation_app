@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:sign/core/network_info.dart';
-import 'dart:developer' show log;
 
 import 'package:sign/model/manga_model.dart';
 

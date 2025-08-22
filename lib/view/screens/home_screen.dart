@@ -1,8 +1,6 @@
-import 'dart:developer' show log;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
-import 'package:sign/core/app_theme.dart';
 import 'package:sign/view/widgets/search_widget.dart';
 import 'package:sign/view/widgets/setting_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -8,6 +8,8 @@ class AuthViewModel extends StateNotifier<UserModel?> {
 
   String? sininErrorMessage;
   String? sinupErroreMessage;
+  String? changeErrorMessage;
+  String? resetErrorMessage;
 
   Future signIn(String email, String password) async {
     try {
@@ -21,7 +23,6 @@ class AuthViewModel extends StateNotifier<UserModel?> {
         return true;
       }
     } on FirebaseAuthException catch (e) {
-      
       log(e.code);
       sininErrorMessage = signinErroreMessage(e.code);
       return false;
@@ -46,6 +47,56 @@ class AuthViewModel extends StateNotifier<UserModel?> {
       return false;
     } catch (e) {
       sinupErroreMessage = "un expected errore";
+      return false;
+    }
+  }
+
+  // 🟡 Change Password
+  Future<bool> changePassword(
+    String email,
+    String oldPassword,
+    String newPassword,
+  ) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        AuthCredential credential = EmailAuthProvider.credential(
+          email: email,
+          password: oldPassword,
+        );
+
+        await user.reauthenticateWithCredential(credential);
+
+        await user.updatePassword(newPassword);
+        await user.reload();
+
+        return true;
+      }
+    } on FirebaseAuthException catch (e) {
+      log(e.code);
+      changeErrorMessage =
+          changePasswordErrorMessage(e.code); //changePasswordErrorMessage
+      return false;
+    } catch (e) {
+      changeErrorMessage = "Unexpected error";
+      return false;
+    }
+    return false;
+  }
+
+  //  Reset Password
+  Future<bool> resetPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      // log("Password reset email sent");
+      return true;
+    } on FirebaseAuthException catch (e) {
+      
+      resetErrorMessage = resetPasswordErrorMessage(e.code);
+      return false;
+    } catch (e) {
+      resetErrorMessage = "Unexpected error";
       return false;
     }
   }
@@ -93,6 +144,30 @@ String signupErroreMessage(String code) {
       return 'error try again later }';
   }
 }
+String changePasswordErrorMessage(String code) {
+  switch (code) {
+    case 'wrong-password':
+      return 'The old password is incorrect.';
+    case 'weak-password':
+      return 'The new password is too weak.';
+    case 'requires-recent-login':
+      return 'Please log in again to change your password.';
+    default:
+      return 'Password change failed.';
+  }
+}
+
+String resetPasswordErrorMessage(String code) {
+  switch (code) {
+    case 'invalid-email':
+      return 'The email address is invalid.';
+    case 'user-not-found':
+      return 'No user found with this email.';
+    default:
+      return 'Failed to send reset email.';
+  }
+}
+
 
 // ✅ IMPROVED CODE - Add these interfaces and implementations below:
 
