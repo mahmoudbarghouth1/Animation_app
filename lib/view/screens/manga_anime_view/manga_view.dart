@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/manga_model.dart';
 
@@ -12,69 +13,69 @@ class MangaView extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsetsGeometry.symmetric(horizontal: 20),
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 20.h),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 200,
-                    width: 150,
+                    height: 150.h,
+                    width: 150.w,
                     child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Text(mangaModel.title, maxLines: 1),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
                         decoration: BoxDecoration(
                           color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: AppRadius.small.r,
                         ),
                         child: Row(
                           children: [
                             const Icon(Icons.star, color: Colors.amber),
-                            const SizedBox(width: 5),
+                            SizedBox(width: 5.w),
                             Text(mangaModel.score.toString()),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.w),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
                         decoration: BoxDecoration(
                           color: AppColors.secondary,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: AppRadius.small.r,
                         ),
                         child: Text(
                           "#"
                           "${mangaModel.rank}",
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.w),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           color: AppColors.secondary,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: AppRadius.small.r,
                         ),
                         child: Text("tv"),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   SizedBox(
-                    width: 300,
+                    width: 300.w,
 
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(10),
+                          borderRadius: AppRadius.small.r,
                         ),
                       ),
                       onPressed: () {},
@@ -87,37 +88,37 @@ class MangaView extends StatelessWidget {
 
                     children: [
                       const Text("Synoposis "),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: AppRadius.larg.r,
                           color: const Color.fromARGB(255, 19, 28, 111),
                         ),
-                        padding: const EdgeInsets.all(15),
+                        padding: EdgeInsets.all(15.r),
 
                         child: Text(
                           mangaModel.synopsis,
                           maxLines: 10,
-                          style: const TextStyle(color: Colors.white54),
+                          style: TextStyle(color: AppColors.white54),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
                       const Text("Information"),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 19, 28, 111),
+                          borderRadius: AppRadius.larg.r,
+                          color: AppColors.thirdColor,
                         ),
-                        height: 250,
-                        padding: const EdgeInsets.all(10),
+                        height: 205.h,
+                        padding: EdgeInsets.all(10.r),
 
                         child: GridView(
                           gridDelegate:
@@ -129,9 +130,9 @@ class MangaView extends StatelessWidget {
                               ),
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10.r),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: AppRadius.small,
                                 color: AppColors.primary,
                               ),
                               child: Column(
@@ -143,9 +144,9 @@ class MangaView extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10.r),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: AppRadius.small,
                                 color: AppColors.primary,
                               ),
                               child: Column(
@@ -157,9 +158,9 @@ class MangaView extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10.r),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: AppRadius.small,
                                 color: AppColors.primary,
                               ),
                               child: Column(
@@ -171,9 +172,9 @@ class MangaView extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10.r),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: AppRadius.small,
                                 color: AppColors.primary,
                               ),
                               child: Column(
@@ -189,31 +190,29 @@ class MangaView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
                       const Text("Geners "),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.r),
                       Container(
-                        padding: const EdgeInsets.all(5),
+                        padding: EdgeInsets.all(5.r),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 19, 28, 111),
+                          borderRadius: AppRadius.larg,
+                          color: AppColors.thirdColor,
                         ),
-                        height: 100,
+                        height: 70.h,
 
                         child: Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
+                              padding: EdgeInsets.symmetric(horizontal: 10.w),
                               decoration: BoxDecoration(
                                 color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: AppRadius.small.r,
                               ),
                               child: Text(mangaModel.genres1),
                             ),
@@ -222,24 +221,25 @@ class MangaView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
                       const Text("Media"),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 19, 28, 111),
+                          borderRadius: AppRadius.larg,
+                          color: AppColors.thirdColor,
                         ),
-                        height: 500,
-                        padding: EdgeInsets.all(10),
+                        height: 400.h,
+                        padding: EdgeInsets.all(10.r),
                       ),
                     ],
                   ),
+                  SizedBox(height: 20.h),
                 ],
               ),
             ),

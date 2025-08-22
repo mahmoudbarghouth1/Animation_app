@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
@@ -17,26 +18,26 @@ class _SettingWidgetState extends State<SettingWidget> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 40),
+        padding: EdgeInsets.only(left: 20.w, right: 30.w),
 
         child: Column(
           children: [
-            const CircleAvatar(
-              radius: 50,
+            CircleAvatar(
+              radius: 40.r,
               backgroundColor: Colors.amber,
               // backgroundImage: ,
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             const Text("Anime explorer"),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             const Text("memser since 2024"),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: AppRadius.medium.r,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg31".tr(context)),
@@ -69,7 +70,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg32".tr(context)),
@@ -84,13 +85,13 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: AppRadius.medium,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +113,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg37".tr(context)),
@@ -123,7 +124,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg38".tr(context)),
@@ -138,13 +139,13 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: AppRadius.medium,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +167,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg42".tr(context)),
@@ -177,7 +178,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ],
                   ),
-                  const Divider(color: Colors.black, thickness: .5, height: 10),
+                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
                       Text("msg43".tr(context)),
@@ -192,8 +193,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            const SizedBox(height: 20),
-
+            SizedBox(height: 20.h),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -215,6 +215,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                 ),
               ),
             ),
+            SizedBox(height: 10.h),
           ],
         ),
       ),

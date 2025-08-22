@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/view/screens/auth_view_screens/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +10,16 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ScreenUtilInit(
+      designSize: const Size(370, 700),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return const ProviderScope(child: MyApp());
+      },
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

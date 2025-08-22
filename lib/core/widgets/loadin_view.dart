@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_theme.dart';
 
 class LoadingView extends StatelessWidget {
@@ -15,8 +16,8 @@ class LoadingView extends StatelessWidget {
             children: [
               Container(),
               SizedBox(
-                height: 30,
-                width: 30,
+                height: 30.h,
+                width: 30.w,
                 child: CircularProgressIndicator(color: AppColors.secondary),
               ),
             ],

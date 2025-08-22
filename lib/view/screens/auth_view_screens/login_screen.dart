@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
@@ -43,7 +44,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 children: [
                   //image
                   AppImage(),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   //title text
                   Text("msg1".tr(context), style: appTheme.textTheme.bodyLarge),
                   //sub title text
@@ -51,12 +52,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     "msg2".tr(context),
                     style: appTheme.textTheme.bodyMedium,
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   //email text field
                   Container(
                     decoration: BoxDecoration(
                       color: AppColors.secondary,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -68,12 +69,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   //pasword textfield
                   Container(
                     decoration: BoxDecoration(
                       color: AppColors.secondary,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -85,7 +86,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -124,10 +125,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   //signin button
                   Text("msg6".tr(context), style: appTheme.textTheme.bodySmall),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   //sinup text
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +137,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         "msg7".tr(context),
                         style: appTheme.textTheme.bodySmall,
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.w),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(

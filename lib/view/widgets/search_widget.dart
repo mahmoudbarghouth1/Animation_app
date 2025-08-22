@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
@@ -13,14 +14,14 @@ class SearchWidget extends StatelessWidget {
     // final height = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: EdgeInsets.symmetric(horizontal: 12.r),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: AppRadius.medium,
               ),
               child: TextFieldWidget(
                 controller: searchController,
@@ -29,51 +30,53 @@ class SearchWidget extends StatelessWidget {
                 keyboard: TextInputType.multiline,
               ),
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: 20.h),
             Container(
               // margin: EdgeInsets.all(2),
-              padding: const EdgeInsets.symmetric(vertical: 1),
+              padding: EdgeInsets.symmetric(vertical: .5.h),
               // margin: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
                     onTap: () {},
                     child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 2.w),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: const Color.fromARGB(255, 13, 4, 63),
+                        borderRadius: BorderRadius.circular(8.r),
+                        color: AppColors.primary,
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 46),
+                      padding: EdgeInsets.symmetric(horizontal: 57.w),
                       child: Text("msg24".tr(context)),
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  SizedBox(width: 1.w),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: const Color.fromARGB(255, 13, 4, 63),
+                        color: AppColors.primary,
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      padding: EdgeInsets.symmetric(horizontal: 55.w),
                       child: Text("msg25".tr(context)),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 30.h),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
 
               decoration: BoxDecoration(
                 color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
 
               child: Padding(
@@ -81,12 +84,12 @@ class SearchWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.search_sharp, size: 50),
-                    const SizedBox(height: 10),
+                    Icon(Icons.search_sharp, size: 50.w),
+                    SizedBox(height: 10.h),
                     Text("msg26".tr(context)),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Text("msg27".tr(context), textAlign: TextAlign.center),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                   ],
                 ),
               ),

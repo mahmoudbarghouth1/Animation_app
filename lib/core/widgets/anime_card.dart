@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/anime_model.dart';
 
@@ -9,22 +10,22 @@ class AnimeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
-        height: 130,
+        height: 100.h,
         decoration: BoxDecoration(
           color: AppColors.secondary,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppRadius.medium.r,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0.r),
           child: Row(
             children: [
               SizedBox(
-                width: 100,
+                width: 90.w,
                 child: Image.network(animeModel.imageUrl, fit: BoxFit.fill),
               ),
-              const SizedBox(width: 5),
+              SizedBox(width: 5.w),
 
               Expanded(
                 child: Column(
@@ -36,11 +37,11 @@ class AnimeCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         const Icon(Icons.star_purple500, color: Colors.amber),
-                        const SizedBox(width: 2),
+                        SizedBox(width: 2.w),
                         Text(
                           animeModel.score.toString(),
                           style: TextStyle(color: Colors.amberAccent),
@@ -59,14 +60,14 @@ class AnimeCard extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 5),
+                    SizedBox(height: 5.h),
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10.r),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: AppRadius.small.r,
                           ),
                           child: Text(
                             animeModel.genres1,
@@ -97,7 +98,7 @@ class AnimeCard extends StatelessWidget {
                         //     style: appTheme.textTheme.bodySmall,
                         //   ),
                         // ),
-                        const SizedBox(width: 2),
+                        SizedBox(width: 2.w),
                       ],
                     ),
                   ],

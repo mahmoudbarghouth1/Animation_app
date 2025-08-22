@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
@@ -48,17 +49,17 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
               children: [
                 //image
                 const AppImage(),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20.h),
                 //title text
                 Text("msg9".tr(context), style: appTheme.textTheme.bodyLarge),
                 //sub title text
                 Text("msg10".tr(context), style: appTheme.textTheme.bodyMedium),
-                const SizedBox(height: 15),
+                 SizedBox(height: 15.h),
                 //email text field
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.secondary,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
 
                   child: Padding(
@@ -71,14 +72,14 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.h),
                     child: TextFieldWidget(
                       keyboard: TextInputType.emailAddress,
                       controller: _emailController,
@@ -87,12 +88,12 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 //pasword textfield
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.secondary,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -104,14 +105,14 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.h),
                     child: TextFieldWidget(
                       keyboard: TextInputType.numberWithOptions(),
                       controller: _confirmPaswordController,
@@ -120,7 +121,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 //terms of policy
                 CheckboxFormField(
                   title: "msg13".tr(context),
@@ -132,7 +133,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 //signin button
                 ElevatedButton(
                   onPressed: () async {
@@ -170,7 +171,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   },
                   child: Center(
                     child: Padding(
-                      padding: const EdgeInsets.all(12),
+                      padding:  EdgeInsets.all(12.r),
                       child: Text(
                         "msg9".tr(context),
                         style: appTheme.textTheme.bodyMedium,
@@ -178,7 +179,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 15),
+                 SizedBox(height: 15.h),
                 //sinup text
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +188,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       "msg14".tr(context),
                       style: appTheme.textTheme.bodySmall,
                     ),
-                    const SizedBox(width: 10),
+                     SizedBox(width: 10.w),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(

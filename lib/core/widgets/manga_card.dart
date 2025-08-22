@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/manga_model.dart';
 
@@ -8,26 +9,23 @@ class MangaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.of(context).size.width;
-    final h = MediaQuery.of(context).size.height;
-    // final screenOrintation = MediaQuery.of(context).orientation;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: w * (10 / 370)),
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
-        height: 130,
+        height: 100.h,
         decoration: BoxDecoration(
           color: AppColors.secondary,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppRadius.medium,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0.r),
           child: Row(
             children: [
               SizedBox(
-                width: w * (100 / 400),
+                width: 90.w,
                 child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
               ),
-              SizedBox(width: w * (5 / 400)),
+              SizedBox(width: 5.w),
 
               Expanded(
                 child: Column(
@@ -39,11 +37,11 @@ class MangaCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    SizedBox(height: h * (10 / 800)),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         const Icon(Icons.star_purple500, color: Colors.amber),
-                        SizedBox(width: w * (2 / 400)),
+                        SizedBox(width: 2.w),
                         Text(
                           mangaModel.score.toString(),
                           style: const TextStyle(color: Colors.amberAccent),
@@ -62,16 +60,14 @@ class MangaCard extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: w * (5 / 400)),
+                    SizedBox(height: 5.h),
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: w * (10 / 400),
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 10.r),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: AppRadius.small,
                           ),
                           child: Text(
                             mangaModel.genres1,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/widgets/anime_card.dart';
 import 'package:sign/core/widgets/loadin_view.dart';
 import 'package:sign/view/screens/manga_anime_view/anime_view.dart';
@@ -37,7 +38,7 @@ class TopAnimeWidget extends ConsumerWidget {
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsetsGeometry.symmetric(vertical: 10),
+                  padding: EdgeInsetsGeometry.symmetric(vertical: 10.h),
                   child: AnimeCard(animeModel: data[index]),
                 ),
               );

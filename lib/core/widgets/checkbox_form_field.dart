@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckboxFormField extends FormField<bool> {
   CheckboxFormField({
@@ -29,7 +30,7 @@ class CheckboxFormField extends FormField<bool> {
                ),
                if (state.hasError)
                  Padding(
-                   padding: const EdgeInsets.only(left: 12.0),
+                   padding:  EdgeInsets.only(left: 12.0.r),
                    child: Text(
                      state.errorText ?? '',
                      style: const TextStyle(

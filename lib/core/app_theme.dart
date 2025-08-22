@@ -92,9 +92,11 @@ class AppColors {
   static const Color primary = Color.fromARGB(255, 11, 21, 73);
   static const Color secondary = Color.fromARGB(255, 72, 97, 219);
   static const Color white = Colors.white;
+    static const Color white54 = Colors.white54;
   static const Color white70 = Colors.white70;
   static const Color white30 = Colors.white30;
   static const Color transparent = Colors.transparent;
+  static const Color thirdColor = Color.fromARGB(255, 19, 28, 111);
 }
 
 // 2. Create dimension constants
@@ -118,6 +120,7 @@ class AppTextSizes {
 
 // 4. Create border radius constants
 class AppRadius {
+  static const BorderRadius larg = BorderRadius.all(Radius.circular(30.0));
   static const BorderRadius medium = BorderRadius.all(Radius.circular(12.0));
   static const BorderRadius small = BorderRadius.all(Radius.circular(10.0));
 }
