@@ -1,7 +1,7 @@
 class AnimeModel {
   final String title;
-  final int rank;
-  final double score;
+  final dynamic rank;
+  final dynamic score;
   final String synopsis;
   final String imageUrl;
   final String genres1;

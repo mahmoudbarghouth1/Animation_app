@@ -5,7 +5,6 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
 import 'package:sign/core/widgets/gradiant_scaffold.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
-import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
 import 'package:sign/viewmodel/providers.dart';
 
 class ChangePassword extends ConsumerStatefulWidget {

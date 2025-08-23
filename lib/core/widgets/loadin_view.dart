@@ -9,19 +9,20 @@ class LoadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsetsGeometry.all(10),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(),
-              SizedBox(
-                height: 30.h,
-                width: 30.w,
-                child: CircularProgressIndicator(color: AppColors.secondary),
-              ),
-            ],
-          ),
+        padding: EdgeInsetsGeometry.all(10.r),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(),
+            SizedBox(
+              height: 30.h,
+              width: 30.w,
+              child: CircularProgressIndicator(color: AppColors.secondary),
+            ),
+            const SizedBox(height: 30),
+            Text("Loading ......", style: appTheme.textTheme.bodyMedium),
+          ],
         ),
       ),
     );

@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
-import 'package:sign/view/widgets/search_widget.dart';
-import 'package:sign/view/widgets/setting_widget.dart';
+import 'package:sign/view/widgets/topanime_topmanga_seach_settings/search_widget.dart';
+import 'package:sign/view/widgets/topanime_topmanga_seach_settings/setting_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:sign/view/widgets/topanime_widget.dart';
-import 'package:sign/view/widgets/topmanga_widget.dart';
+import 'package:sign/view/widgets/topanime_topmanga_seach_settings/topanime_widget.dart';
+import 'package:sign/view/widgets/topanime_topmanga_seach_settings/topmanga_widget.dart';
 import 'package:sign/viewmodel/providers.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {

@@ -7,6 +7,7 @@ import 'package:sign/model/user_model.dart';
 import 'package:sign/viewmodel/anime_view_model.dart';
 import 'package:sign/viewmodel/auth_view_model.dart';
 import 'package:sign/viewmodel/manga_view_model.dart';
+import 'package:sign/viewmodel/seach_view_model.dart';
 
 final authViewerModelProvider =
     StateNotifierProvider<AuthViewModel, UserModel?>((ref) => AuthViewModel());
@@ -37,6 +38,25 @@ final mangaModelProvider = FutureProvider<List<MangaModel>>((ref) {
 
   return mangaList.getdata();
 });
+final searchTextProvider = StateProvider<String>((ref) => "");
+final choiceProvider = StateProvider<String>((ref) {
+  return "anime";
+});
+final searchViewModelProvider = Provider<SearchViewmodel>((ref) {
+  return SearchViewmodel(networkInfo: ref.read(networkInfoProvider));
+});
+final futureAnimeSearchProvider = FutureProvider.family<List<AnimeModel>, String>((
+  ref,
+  query,
+) {
+  final animeSearchlist = ref.read(searchViewModelProvider);
+  return animeSearchlist.searchData(searchType: "anime", item: query);
+});
+final futureMangSearchProvider =
+    FutureProvider.family<List<MangaModel>, String>((ref, query) {
+      final mangaSearchList = ref.read(searchViewModelProvider);
+      return mangaSearchList.searchData(searchType: "manga", item: query);
+    });
 
 // things that could be done:
 

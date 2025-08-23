@@ -15,7 +15,7 @@ class TopAnimeWidget extends ConsumerWidget {
 
     return RefreshIndicator(
       onRefresh: () async {
-        return await ref.refresh(mangaViewModelProvider);
+        return await ref.refresh(animeViewModelProvider);
       },
       child: animeList.when(
         error: (error, stackTrace) {
