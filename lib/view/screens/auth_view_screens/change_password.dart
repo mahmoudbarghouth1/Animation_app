@@ -126,6 +126,15 @@ class _ChangePasswordState extends ConsumerState<ChangePassword> {
                   ),
                 ),
                 SizedBox(height: 10.h),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Back", style: appTheme.textTheme.bodyMedium),
+                  ),
+                ),
               ],
             ),
           ),

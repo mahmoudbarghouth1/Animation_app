@@ -16,15 +16,16 @@ class HomeScreen extends ConsumerStatefulWidget {
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
   final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     Widget? body;
     String? appBarTitle;
-    // int x = ref.read(bottomNavigatorProvider.notifier).state;
-    // // log(x.toString());
+  
     if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
       body = TopAnimeWidget();
       appBarTitle = "msg15".tr(context);
@@ -54,6 +55,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
       onTap: (index) {
         ref.read(bottomNavigatorProvider.notifier).state = index;
+        if (index == 2) {
+          ref.invalidate(searchTextProvider);
+          ref.invalidate(futureAnimeSearchProvider);
+          ref.invalidate(futureMangSearchProvider);
+        }
       },
       items: [
         BottomNavigationBarItem(
@@ -84,6 +90,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       title: Text(appBarTitle),
     );
   }
+
+  @override
+  
+  bool get wantKeepAlive => false;
 }
 
 // things that could be done:

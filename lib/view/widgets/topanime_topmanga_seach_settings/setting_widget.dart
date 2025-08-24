@@ -7,6 +7,7 @@ import 'package:sign/core/util/snake_bar_message.dart';
 import 'package:sign/view/screens/auth_view_screens/change_password.dart';
 import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
 
+// ignore: must_be_immutable
 class SettingWidget extends StatefulWidget {
   const SettingWidget({super.key});
 
@@ -15,6 +16,7 @@ class SettingWidget extends StatefulWidget {
 }
 
 class _SettingWidgetState extends State<SettingWidget> {
+  final bool _isdark = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -159,28 +161,40 @@ class _SettingWidgetState extends State<SettingWidget> {
                     "msg39".tr(context),
                     style: appTheme.textTheme.bodySmall,
                   ),
+                  // ListTile(
+
+                  //   leading: Text(
+                  //     "msg40".tr(context),
+                  //     style: appTheme.textTheme.bodyMedium,
+                  //   ),
+                  //   trailing: SizedBox(
+                  //     height: 3.h,
+                  //     width: 3.w,
+
+                  //     child: Switch(value: _isdark, onChanged: (value) {}),
+                  //   ),
+                  // ),
+                  //"msg42"
                   Row(
                     children: [
                       Text(
-                        "msg40".tr(context),
+                        "msg42".tr(context),
                         style: appTheme.textTheme.bodyMedium,
                       ),
                       const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
+                      SizedBox(
+                        height: 3.h,
+
+                        child: Switch(value: _isdark, onChanged: (Value) {}),
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
+                  Divider(color: Colors.black, thickness: .1.h, height: 3.h),
                   Row(
                     children: [
-                      Text("msg42".tr(context)),
+                      Text("msg40".tr(context)),
                       const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
-                      ),
+                      const Icon(Icons.arrow_right_alt_outlined),
                     ],
                   ),
                   Divider(color: Colors.black, thickness: .1.h, height: 5.h),
@@ -188,10 +202,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                     children: [
                       Text("msg43".tr(context)),
                       const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
-                      ),
+                      const Icon(Icons.arrow_right_alt_outlined),
                     ],
                   ),
                 ],

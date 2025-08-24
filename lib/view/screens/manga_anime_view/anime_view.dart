@@ -43,7 +43,7 @@ class AnimeView extends StatelessWidget {
                           children: [
                             const Icon(Icons.star, color: Colors.amber),
                             SizedBox(width: 5.w),
-                            Text(data.rank.toString() ),
+                            Text(data.rank.toString()),
                           ],
                         ),
                       ),
@@ -54,7 +54,7 @@ class AnimeView extends StatelessWidget {
                           color: AppColors.secondary,
                           borderRadius: AppRadius.small.r,
                         ),
-                        child: Text(data.score.toString() ),
+                        child: Text(data.score.toString()),
                       ),
                       SizedBox(width: 10.w),
                       Container(
@@ -63,7 +63,7 @@ class AnimeView extends StatelessWidget {
                           color: AppColors.secondary,
                           borderRadius: AppRadius.small.r,
                         ),
-                        child: Text(data.score.toString() ),
+                        child: Text(data.score.toString()),
                       ),
                     ],
                   ),
@@ -203,18 +203,31 @@ class AnimeView extends StatelessWidget {
                         ),
                         height: 70.h,
 
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10.h),
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: AppRadius.small,
-                              ),
-                              child: Text(data.genres?[0].name ?? "",),
-                            ),
-                          ],
-                        ),
+                        child: data.genres != null && data.genres!.isNotEmpty
+                            ? GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                      childAspectRatio: 2,
+                                    ),
+                                itemCount: data.genres!.length,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w,
+                                      vertical: 5.h,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius: AppRadius.small,
+                                    ),
+                                    child: Text(data.genres![index].name!),
+                                  );
+                                },
+                              )
+                            : SizedBox.shrink(),
                       ),
                     ],
                   ),

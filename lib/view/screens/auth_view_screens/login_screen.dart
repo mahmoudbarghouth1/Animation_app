@@ -139,7 +139,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_)=>RessetPassword()),
+                          MaterialPageRoute(builder: (_) => RessetPassword()),
                         );
                       },
                       child: Text(
@@ -161,6 +161,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           onTap: () {
                             Navigator.push(
                               context,
+
                               MaterialPageRoute(builder: (_) => SignupScreen()),
                             );
                           },

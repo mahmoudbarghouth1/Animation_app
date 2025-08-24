@@ -46,7 +46,7 @@ class AnimeCard extends StatelessWidget {
                         const Icon(Icons.star_purple500, color: Colors.amber),
                         SizedBox(width: 2.w),
                         Text(
-                          data.score.toString() ,
+                          data.score.toString(),
                           style: TextStyle(color: Colors.amberAccent),
                         ),
                       ],
@@ -54,7 +54,7 @@ class AnimeCard extends StatelessWidget {
 
                     Expanded(
                       child: Text(
-                       data.synopsis ?? "",
+                        data.synopsis ?? "",
                         overflow: TextOverflow.visible,
                         softWrap: true,
 
@@ -64,46 +64,36 @@ class AnimeCard extends StatelessWidget {
                     ),
 
                     SizedBox(height: 5.h),
-                    Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10.r),
-                          decoration: BoxDecoration(
-                            color: AppColors.primary,
-                            borderRadius: AppRadius.small.r,
-                          ),
-                          child: Text(
-                            data.genres?[0].name ?? "",
-                            style: appTheme.textTheme.bodySmall,
-                          ),
-                        ),
-                        // SizedBox(width: 2),
-                        // Container(
-                        //   padding: EdgeInsets.symmetric(horizontal: 10),
-                        //   decoration: BoxDecoration(
-                        //     color: AppColors.primary,
-                        //     borderRadius: BorderRadius.circular(10),
-                        //   ),
-                        //   child: Text(
-                        //    data.genres?[2].name ?? "mhhhb",
-                        //     style: appTheme.textTheme.bodySmall,
-                        //   ),
-                        // ),
-                        // SizedBox(width: 2),
-                        // Container(
-                        //   padding: EdgeInsets.symmetric(horizontal: 10),
-                        //   decoration: BoxDecoration(
-                        //     color: AppColors.primary,
-                        //     borderRadius: BorderRadius.circular(10),
-                        //   ),
-                        //   child: Text(
-                        //     data.genres?[3].name ?? "",
-                        //     style: appTheme.textTheme.bodySmall,
-                        //   ),
-                        // ),
-                        SizedBox(width: 2.w),
-                      ],
-                    ),
+                    data.genres != null && data.genres!.isNotEmpty
+                        ? Expanded(
+                            child: GridView.builder(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 6,
+                                    crossAxisSpacing: 2,
+                                    mainAxisSpacing: 2,
+                                    childAspectRatio: 2,
+                                  ),
+                              itemCount: data.genres!.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 10.w,
+                                    vertical: 2.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primary,
+                                    borderRadius: AppRadius.small,
+                                  ),
+                                  child: Text(
+                                    data.genres![index].name!,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                );
+                              },
+                            ),
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),

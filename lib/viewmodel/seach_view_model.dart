@@ -8,7 +8,7 @@ import 'package:sign/model/manga_model.dart';
 
 class SearchViewmodel {
   final NetworkInfo networkInfo;
-  String? message;
+  // String? message;
 
   SearchViewmodel({required this.networkInfo});
 
@@ -28,7 +28,9 @@ class SearchViewmodel {
     if (response.statusCode == 200) {
       final jsondecoded = jsonDecode(response.body);
       final List data = jsondecoded["data"];
-      if (searchType == "anime") {
+      if (data.isEmpty) {
+        throw "no matching search try something else";
+      } else if (searchType == "anime") {
         return data.map((e) => Data.fromJson(e) as T).toList();
       } else if (searchType == "manga") {
         return data.map((e) => MangaData.fromJson(e) as T).toList();
@@ -36,11 +38,11 @@ class SearchViewmodel {
 
       //dvxcbvxcbxcb
     } else if (response.statusCode == 400) {
-      throw Exception("seerver connection please try again later ");
+      throw ("seerver connection please try again later ");
     } else {
-      throw Exception("unexpected error please try again later ");
+      throw ("unexpected error please try again later ");
     }
-    throw Exception("unexpected error please try again later ");
+    throw ("unexpected error please try again later ");
   }
 
   // Future<List> getdata({required String searchType,required String item}) async {

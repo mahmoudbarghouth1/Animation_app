@@ -27,12 +27,12 @@ class ManagaViewModel {
             .toList();
         return topManga;
       } else if (response.statusCode == 400) {
-        throw Exception("Server problem, please try again later.");
+        throw ("Server problem, please try again later.");
       } else {
-        throw Exception("Unexpected server error: ${response.statusCode}");
+        throw ("Unexpected server error: ${response.statusCode}");
       }
     } else {
-      throw Exception(" no internet please connect ");
+      throw (" no internet please connect ");
     }
   }
   // ManagaViewModel() : super([]);

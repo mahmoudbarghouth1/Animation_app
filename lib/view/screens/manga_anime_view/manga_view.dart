@@ -21,7 +21,10 @@ class MangaView extends StatelessWidget {
                   SizedBox(
                     height: 150.h,
                     width: 150.w,
-                    child: Image.network(mangaData.images?.jpg?.imageUrl ?? "" ,fit: BoxFit.fill),
+                    child: Image.network(
+                      mangaData.images?.jpg?.imageUrl ?? "",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   SizedBox(height: 10.h),
                   Text(mangaData.title ?? "", maxLines: 1),
@@ -97,7 +100,7 @@ class MangaView extends StatelessWidget {
                         padding: EdgeInsets.all(15.r),
 
                         child: Text(
-                         mangaData.synopsis ?? "",
+                          mangaData.synopsis ?? "",
                           maxLines: 10,
                           style: TextStyle(color: AppColors.white54),
                         ),
@@ -197,27 +200,42 @@ class MangaView extends StatelessWidget {
 
                     children: [
                       const Text("Geners "),
-                      SizedBox(height: 10.r),
+                      SizedBox(height: 10.h),
                       Container(
                         padding: EdgeInsets.all(5.r),
                         decoration: BoxDecoration(
-                          borderRadius: AppRadius.larg,
-                          color: AppColors.thirdColor,
+                          borderRadius: BorderRadius.circular(30),
+                          color: const Color.fromARGB(255, 19, 28, 111),
                         ),
                         height: 70.h,
 
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: AppRadius.small.r,
-                              ),
-                              child: Text(mangaData.genres?[0].name ?? "",),
-                            ),
-                          ],
-                        ),
+                        child:
+                            mangaData.genres != null &&
+                                mangaData.genres!.isNotEmpty
+                            ? GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                      childAspectRatio: 2,
+                                    ),
+                                itemCount: mangaData.genres!.length,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w,
+                                      vertical: 5.h,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius: AppRadius.small,
+                                    ),
+                                    child: Text(mangaData.genres![index].name!),
+                                  );
+                                },
+                              )
+                            : SizedBox.shrink(),
                       ),
                     ],
                   ),

@@ -10,6 +10,7 @@ import 'package:sign/core/widgets/loading_view.dart';
 import 'package:sign/core/widgets/manga_card.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
 import 'package:sign/view/screens/manga_anime_view/anime_view.dart';
+import 'package:sign/view/screens/manga_anime_view/manga_view.dart';
 import 'package:sign/viewmodel/providers.dart';
 
 class SearchWidget extends ConsumerStatefulWidget {
@@ -20,14 +21,14 @@ class SearchWidget extends ConsumerStatefulWidget {
 }
 
 class _SearchWidgetState extends ConsumerState<SearchWidget> {
-  final TextEditingController searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   Timer? _debounce;
 
   @override
   void dispose() {
-    _debounce?.cancel();
-    searchController.dispose();
     super.dispose();
+    _debounce?.cancel();
+    _searchController.dispose();
   }
 
   void _onSearchChanged(String value) {
@@ -61,7 +62,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                 children: [
                   Expanded(
                     child: TextFieldWidget(
-                      controller: searchController,
+                      controller: _searchController,
                       hintText: "msg28".tr(context),
                       obscureText: false,
                       keyboard: TextInputType.multiline,
@@ -73,7 +74,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                   IconButton(
                     onPressed: () {
                       ref.read(searchTextProvider.notifier).state =
-                          searchController.text.trim();
+                          _searchController.text.trim();
                     },
                     icon: Icon(Icons.search),
                   ),
@@ -204,7 +205,20 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                                             child: AnimeCard(data: data[index]),
                                           ),
                                         )
-                                      : MangaCard(mangaData: data[index]);
+                                      : GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) => MangaView(
+                                                  mangaData: data[index],
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: MangaCard(
+                                            mangaData: data[index],
+                                          ),
+                                        );
                                 },
                                 separatorBuilder: (context, index) {
                                   return Divider(

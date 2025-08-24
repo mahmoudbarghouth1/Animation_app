@@ -99,6 +99,7 @@ class AppColors {
   static const Color white30 = Colors.white30;
   static const Color transparent = Colors.transparent;
   static const Color thirdColor = Color.fromARGB(255, 19, 28, 111);
+  static const Color forthColor = Color(0xff1e3a8a);
 }
 
 // 2. Create dimension constants
