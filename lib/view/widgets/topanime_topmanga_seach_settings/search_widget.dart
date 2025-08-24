@@ -6,9 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/widgets/anime_card.dart';
-import 'package:sign/core/widgets/loadin_view.dart';
+import 'package:sign/core/widgets/loading_view.dart';
 import 'package:sign/core/widgets/manga_card.dart';
 import 'package:sign/core/widgets/text_field_widget.dart';
+import 'package:sign/view/screens/manga_anime_view/anime_view.dart';
 import 'package:sign/viewmodel/providers.dart';
 
 class SearchWidget extends ConsumerStatefulWidget {
@@ -130,60 +131,94 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
               ),
             ),
             SizedBox(height: 30.h),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 5.w),
 
-              decoration: BoxDecoration(
-                color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(20.r),
-              ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
 
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: (search.trim().isEmpty)
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.search_sharp, size: 50.w),
-                          SizedBox(height: 10.h),
-                          Text("msg26".tr(context)),
-                          SizedBox(height: 10.h),
-                          Text(
-                            "msg27".tr(context),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(height: 20.h),
-                        ],
-                      )
-                    :
-                      // : RefreshIndicator(
-                      //     onRefresh: () async {
-                      //       return await ref.refresh(
-                      //         choice == "anime"
-                      //             ? futureAnimeSearchProvider(search)
-                      //             : futureMangSearchProvider(search),
-                      //       );
-                      //     },
-                      //     child:
-                      searchList.when(
-                        error: (error, stackTrace) {
-                          return Center(child: Text(error.toString()));
-                        },
-                        loading: () {
-                          return Center(child: const LoadingView());
-                        },
-                        data: (data) {
-                          return ListView.builder(
-                            itemCount: data.length,
-                            itemBuilder: (context, index) {
-                              return choice == "anime"
-                                  ? AnimeCard(animeModel: data[index])
-                                  : MangaCard(mangaModel: data[index]);
+                decoration: BoxDecoration(
+                  color: AppColors.secondary,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.w,
+                    vertical: 10.h,
+                  ),
+                  child: (search.trim().isEmpty)
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.search_sharp, size: 50.w),
+                            SizedBox(height: 10.h),
+                            Text("msg26".tr(context)),
+                            SizedBox(height: 10.h),
+                            Text(
+                              "msg27".tr(context),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 20.h),
+                          ],
+                        )
+                      : RefreshIndicator(
+                          onRefresh: () async {
+                            return await ref.refresh(
+                              choice == "anime"
+                                  ? futureAnimeSearchProvider(search)
+                                  : futureMangSearchProvider(search),
+                            );
+                          },
+                          child: searchList.when(
+                            error: (error, stackTrace) {
+                              return Center(child: Text(error.toString()));
                             },
-                          );
-                        },
-                        // ),
-                      ),
+                            loading: () {
+                              return Center(child: const LoadingView());
+                            },
+                            data: (data) {
+                              return ListView.separated(
+                                itemCount: data.length,
+                                itemBuilder: (context, index) {
+                                  return choice == "anime"
+                                      ? GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) => AnimeView(
+                                                  data: data[index],
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                  builder: (_) => AnimeView(
+                                                    data: data[index],
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                            child: AnimeCard(data: data[index]),
+                                          ),
+                                        )
+                                      : MangaCard(mangaData: data[index]);
+                                },
+                                separatorBuilder: (context, index) {
+                                  return Divider(
+                                    color: AppColors.primary,
+                                    height: 10.h,
+                                    thickness: 1.h,
+                                  );
+                                },
+                              );
+                            },
+                            // ),
+                          ),
+                        ),
+                ),
               ),
             ),
           ],

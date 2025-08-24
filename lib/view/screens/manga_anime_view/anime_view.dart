@@ -4,8 +4,8 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/anime_model.dart';
 
 class AnimeView extends StatelessWidget {
-  const AnimeView({super.key, required this.animeModel});
-  final AnimeModel animeModel;
+  const AnimeView({super.key, required this.data});
+  final Data data;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,13 @@ class AnimeView extends StatelessWidget {
                   SizedBox(
                     height: 150.h,
                     width: 150.w,
-                    child: Image.network(animeModel.imageUrl, fit: BoxFit.fill),
+                    child: Image.network(
+                      data.images?.jpg?.imageUrl ?? "",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   SizedBox(height: 10.h),
-                  Text(animeModel.title, maxLines: 1),
+                  Text(data.title ?? "", maxLines: 1),
                   SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +43,7 @@ class AnimeView extends StatelessWidget {
                           children: [
                             const Icon(Icons.star, color: Colors.amber),
                             SizedBox(width: 5.w),
-                            Text(animeModel.rank.toString()),
+                            Text(data.rank.toString() ),
                           ],
                         ),
                       ),
@@ -51,7 +54,7 @@ class AnimeView extends StatelessWidget {
                           color: AppColors.secondary,
                           borderRadius: AppRadius.small.r,
                         ),
-                        child: Text(animeModel.score.toString()),
+                        child: Text(data.score.toString() ),
                       ),
                       SizedBox(width: 10.w),
                       Container(
@@ -60,7 +63,7 @@ class AnimeView extends StatelessWidget {
                           color: AppColors.secondary,
                           borderRadius: AppRadius.small.r,
                         ),
-                        child: const Text("9.1"),
+                        child: Text(data.score.toString() ),
                       ),
                     ],
                   ),
@@ -91,7 +94,7 @@ class AnimeView extends StatelessWidget {
                         padding: EdgeInsets.all(15.r),
 
                         child: Text(
-                          animeModel.synopsis,
+                          data.synopsis ?? "",
                           maxLines: 10,
                           style: const TextStyle(color: AppColors.white54),
                         ),
@@ -208,7 +211,7 @@ class AnimeView extends StatelessWidget {
                                 color: AppColors.primary,
                                 borderRadius: AppRadius.small,
                               ),
-                              child: Text(animeModel.genres1),
+                              child: Text(data.genres?[0].name ?? "",),
                             ),
                           ],
                         ),

@@ -4,8 +4,8 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/manga_model.dart';
 
 class MangaView extends StatelessWidget {
-  const MangaView({super.key, required this.mangaModel});
-  final MangaModel mangaModel;
+  const MangaView({super.key, required this.mangaData});
+  final MangaData mangaData;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class MangaView extends StatelessWidget {
                   SizedBox(
                     height: 150.h,
                     width: 150.w,
-                    child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
+                    child: Image.network(mangaData.images?.jpg?.imageUrl ?? "" ,fit: BoxFit.fill),
                   ),
                   SizedBox(height: 10.h),
-                  Text(mangaModel.title, maxLines: 1),
+                  Text(mangaData.title ?? "", maxLines: 1),
                   SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +40,7 @@ class MangaView extends StatelessWidget {
                           children: [
                             const Icon(Icons.star, color: Colors.amber),
                             SizedBox(width: 5.w),
-                            Text(mangaModel.score.toString()),
+                            Text(mangaData.rank.toString()),
                           ],
                         ),
                       ),
@@ -53,7 +53,7 @@ class MangaView extends StatelessWidget {
                         ),
                         child: Text(
                           "#"
-                          "${mangaModel.rank}",
+                          "${mangaData.rank}",
                         ),
                       ),
                       SizedBox(width: 10.w),
@@ -97,7 +97,7 @@ class MangaView extends StatelessWidget {
                         padding: EdgeInsets.all(15.r),
 
                         child: Text(
-                          mangaModel.synopsis,
+                         mangaData.synopsis ?? "",
                           maxLines: 10,
                           style: TextStyle(color: AppColors.white54),
                         ),
@@ -214,7 +214,7 @@ class MangaView extends StatelessWidget {
                                 color: AppColors.primary,
                                 borderRadius: AppRadius.small.r,
                               ),
-                              child: Text(mangaModel.genres1),
+                              child: Text(mangaData.genres?[0].name ?? "",),
                             ),
                           ],
                         ),

@@ -25,7 +25,7 @@ final networkInfoProvider = Provider((ref) {
 final animeViewModelProvider = Provider<AnimeViewmodel>((ref) {
   return AnimeViewmodel(networkInfo: ref.read(networkInfoProvider));
 });
-final animeModelProvider = FutureProvider<List<AnimeModel>>((ref) {
+final animeModelProvider = FutureProvider<List<Data>>((ref) {
   final animList = ref.read(animeViewModelProvider);
 
   return animList.getdata();
@@ -33,7 +33,7 @@ final animeModelProvider = FutureProvider<List<AnimeModel>>((ref) {
 final mangaViewModelProvider = Provider<ManagaViewModel>((ref) {
   return ManagaViewModel(networkInfo: ref.read(networkInfoProvider));
 });
-final mangaModelProvider = FutureProvider<List<MangaModel>>((ref) {
+final mangaModelProvider = FutureProvider<List<MangaData>>((ref) {
   final mangaList = ref.read(mangaViewModelProvider);
 
   return mangaList.getdata();
@@ -45,18 +45,19 @@ final choiceProvider = StateProvider<String>((ref) {
 final searchViewModelProvider = Provider<SearchViewmodel>((ref) {
   return SearchViewmodel(networkInfo: ref.read(networkInfoProvider));
 });
-final futureAnimeSearchProvider = FutureProvider.family<List<AnimeModel>, String>((
+final futureAnimeSearchProvider = FutureProvider.family<List<Data>, String>((
   ref,
   query,
 ) {
   final animeSearchlist = ref.read(searchViewModelProvider);
   return animeSearchlist.searchData(searchType: "anime", item: query);
 });
-final futureMangSearchProvider =
-    FutureProvider.family<List<MangaModel>, String>((ref, query) {
-      final mangaSearchList = ref.read(searchViewModelProvider);
-      return mangaSearchList.searchData(searchType: "manga", item: query);
-    });
+final futureMangSearchProvider = FutureProvider.family<List<MangaData>, String>(
+  (ref, query) {
+    final mangaSearchList = ref.read(searchViewModelProvider);
+    return mangaSearchList.searchData(searchType: "manga", item: query);
+  },
+);
 
 // things that could be done:
 

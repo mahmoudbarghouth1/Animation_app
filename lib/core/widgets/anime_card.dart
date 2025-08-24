@@ -4,8 +4,8 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/anime_model.dart';
 
 class AnimeCard extends StatelessWidget {
-  final AnimeModel animeModel;
-  const AnimeCard({super.key, required this.animeModel});
+  final Data data;
+  const AnimeCard({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,10 @@ class AnimeCard extends StatelessWidget {
             children: [
               SizedBox(
                 width: 90.w,
-                child: Image.network(animeModel.imageUrl, fit: BoxFit.fill),
+                child: Image.network(
+                  data.images?.jpg?.imageUrl ?? "",
+                  fit: BoxFit.fill,
+                ),
               ),
               SizedBox(width: 5.w),
 
@@ -32,7 +35,7 @@ class AnimeCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      animeModel.title,
+                      data.title ?? "",
                       style: appTheme.textTheme.bodySmall,
 
                       maxLines: 1,
@@ -43,7 +46,7 @@ class AnimeCard extends StatelessWidget {
                         const Icon(Icons.star_purple500, color: Colors.amber),
                         SizedBox(width: 2.w),
                         Text(
-                          animeModel.score.toString(),
+                          data.score.toString() ,
                           style: TextStyle(color: Colors.amberAccent),
                         ),
                       ],
@@ -51,7 +54,7 @@ class AnimeCard extends StatelessWidget {
 
                     Expanded(
                       child: Text(
-                        animeModel.synopsis,
+                       data.synopsis ?? "",
                         overflow: TextOverflow.visible,
                         softWrap: true,
 
@@ -70,7 +73,7 @@ class AnimeCard extends StatelessWidget {
                             borderRadius: AppRadius.small.r,
                           ),
                           child: Text(
-                            animeModel.genres1,
+                            data.genres?[0].name ?? "",
                             style: appTheme.textTheme.bodySmall,
                           ),
                         ),
@@ -78,11 +81,11 @@ class AnimeCard extends StatelessWidget {
                         // Container(
                         //   padding: EdgeInsets.symmetric(horizontal: 10),
                         //   decoration: BoxDecoration(
-                        //     color: secondryColor,
+                        //     color: AppColors.primary,
                         //     borderRadius: BorderRadius.circular(10),
                         //   ),
                         //   child: Text(
-                        //     animeMOdel.synopsis,
+                        //    data.genres?[2].name ?? "mhhhb",
                         //     style: appTheme.textTheme.bodySmall,
                         //   ),
                         // ),
@@ -90,11 +93,11 @@ class AnimeCard extends StatelessWidget {
                         // Container(
                         //   padding: EdgeInsets.symmetric(horizontal: 10),
                         //   decoration: BoxDecoration(
-                        //     color: secondryColor,
+                        //     color: AppColors.primary,
                         //     borderRadius: BorderRadius.circular(10),
                         //   ),
                         //   child: Text(
-                        //     animeMOdel.synopsis,
+                        //     data.genres?[3].name ?? "",
                         //     style: appTheme.textTheme.bodySmall,
                         //   ),
                         // ),

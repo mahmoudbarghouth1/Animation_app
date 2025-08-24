@@ -4,8 +4,8 @@ import 'package:sign/core/app_theme.dart';
 import 'package:sign/model/manga_model.dart';
 
 class MangaCard extends StatelessWidget {
-  final MangaModel mangaModel;
-  const MangaCard({super.key, required this.mangaModel});
+  final MangaData mangaData;
+  const MangaCard({super.key, required this.mangaData});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,10 @@ class MangaCard extends StatelessWidget {
             children: [
               SizedBox(
                 width: 90.w,
-                child: Image.network(mangaModel.imageUrl, fit: BoxFit.fill),
+                child: Image.network(
+                  mangaData.images?.jpg?.imageUrl ?? "",
+                  fit: BoxFit.fill,
+                ),
               ),
               SizedBox(width: 5.w),
 
@@ -32,7 +35,7 @@ class MangaCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      mangaModel.title,
+                      mangaData.title ?? "",
                       style: appTheme.textTheme.bodySmall,
 
                       maxLines: 1,
@@ -43,7 +46,7 @@ class MangaCard extends StatelessWidget {
                         const Icon(Icons.star_purple500, color: Colors.amber),
                         SizedBox(width: 2.w),
                         Text(
-                          mangaModel.score.toString(),
+                        mangaData.score.toString() ,
                           style: const TextStyle(color: Colors.amberAccent),
                         ),
                       ],
@@ -51,7 +54,7 @@ class MangaCard extends StatelessWidget {
 
                     Expanded(
                       child: Text(
-                        mangaModel.synopsis,
+                      mangaData.synopsis ?? "",
                         overflow: TextOverflow.visible,
                         softWrap: true,
 
@@ -70,7 +73,7 @@ class MangaCard extends StatelessWidget {
                             borderRadius: AppRadius.small,
                           ),
                           child: Text(
-                            mangaModel.genres1,
+                            mangaData.genres?[0].name ?? "",
                             style: appTheme.textTheme.bodySmall,
                           ),
                         ),

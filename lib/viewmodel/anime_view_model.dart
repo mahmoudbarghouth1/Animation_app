@@ -11,7 +11,7 @@ class AnimeViewmodel {
 
   AnimeViewmodel({required this.networkInfo});
   // List<AnimeModel> topAnimeList = [];
-  Future<List<AnimeModel>> getdata() async {
+  Future<List<Data>> getdata() async {
     final url = Uri.https('api.jikan.moe', '/v4/top/anime');
 
     if (await networkInfo.isConnected) {
@@ -22,8 +22,8 @@ class AnimeViewmodel {
       if (response.statusCode == 200) {
         final jsononDecoded = jsonDecode(response.body);
         final List lastresponse = jsononDecoded["data"];
-        final List<AnimeModel> topAnime = lastresponse
-            .map((jsonindex) => AnimeModel.fromJason(jsonindex))
+        final List<Data> topAnime = lastresponse
+            .map((jsonindex) => Data.fromJson(jsonindex))
             .toList();
         return topAnime;
       } else if (response.statusCode == 400) {
@@ -36,6 +36,31 @@ class AnimeViewmodel {
     }
   }
 }
+
+// class AnimeViewmodel {
+//   String? message;
+//   Future<List<Data>> getdata() async {
+//     final url = Uri.https('api.jikan.moe', '/v4/top/anime');
+//     final response = await http.get(
+//       url,
+//       headers: {"Content-Type": "application/json"},
+//     );
+//     log(response.body.toString());
+//     if (response.statusCode == 200) {
+//       final jsonDecoded = jsonDecode(response.body);
+//       final List<dynamic> lastResponse = jsonDecoded["data"];
+//       final List<Data> topAnime = lastResponse
+//           .map((json) => Data.fromJson(json))
+//           .toList();
+
+//       return topAnime;
+//     } else if (response.statusCode == 400) {
+//       throw Exception("Server problem, please try again later.");
+//     } else {
+//       throw Exception("Unexpected server error: ${response.statusCode}");
+//     }
+//   }
+// }
 
 // things that could be done:
 

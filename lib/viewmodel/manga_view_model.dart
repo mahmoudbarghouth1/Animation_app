@@ -11,7 +11,7 @@ class ManagaViewModel {
 
   ManagaViewModel({required this.networkInfo});
 
-  Future<List<MangaModel>> getdata() async {
+  Future<List<MangaData>> getdata() async {
     final url = Uri.https('api.jikan.moe', '/v4/top/manga');
 
     if (await networkInfo.isConnected) {
@@ -22,8 +22,8 @@ class ManagaViewModel {
       if (response.statusCode == 200) {
         final jsononDecoded = jsonDecode(response.body);
         final List lastresponse = jsononDecoded["data"];
-        final List<MangaModel> topManga = lastresponse
-            .map((jsonindex) => MangaModel.fromJason(jsonindex))
+        final List<MangaData> topManga = lastresponse
+            .map((jsonindex) => MangaData.fromJson(jsonindex))
             .toList();
         return topManga;
       } else if (response.statusCode == 400) {

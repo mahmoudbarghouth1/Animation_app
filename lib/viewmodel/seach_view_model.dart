@@ -29,9 +29,9 @@ class SearchViewmodel {
       final jsondecoded = jsonDecode(response.body);
       final List data = jsondecoded["data"];
       if (searchType == "anime") {
-        return data.map((e) => AnimeModel.fromJason(e) as T).toList();
+        return data.map((e) => Data.fromJson(e) as T).toList();
       } else if (searchType == "manga") {
-        return data.map((e) => MangaModel.fromJason(e) as T).toList();
+        return data.map((e) => MangaData.fromJson(e) as T).toList();
       }
 
       //dvxcbvxcbxcb
