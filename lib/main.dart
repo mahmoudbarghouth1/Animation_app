@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sign/viewmodel/providers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +23,14 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   //  This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeProvider);
+    final language = ref.watch(languageProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
@@ -38,6 +41,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+
       localeResolutionCallback: (deviceLocale, supportedLocales) {
         for (var locale in supportedLocales) {
           if (deviceLocale != null &&
@@ -48,9 +52,11 @@ class MyApp extends StatelessWidget {
 
         return supportedLocales.first;
       },
+      locale: language,
+
       theme: appTheme,
       darkTheme: appDarkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode,
       home: const Auth(),
     );
   }

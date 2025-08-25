@@ -1,22 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
 import 'package:sign/view/screens/auth_view_screens/change_password.dart';
 import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
+import 'package:sign/viewmodel/providers.dart';
 
 // ignore: must_be_immutable
-class SettingWidget extends StatefulWidget {
+class SettingWidget extends ConsumerStatefulWidget {
   const SettingWidget({super.key});
 
   @override
-  State<SettingWidget> createState() => _SettingWidgetState();
+  ConsumerState<SettingWidget> createState() => _SettingWidgetState();
 }
 
-class _SettingWidgetState extends State<SettingWidget> {
-  final bool _isdark = false;
+class _SettingWidgetState extends ConsumerState<SettingWidget> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,11 +31,11 @@ class _SettingWidgetState extends State<SettingWidget> {
               backgroundColor: Colors.amber,
               // backgroundImage: ,
             ),
-            SizedBox(height: 10.h),
-            const Text("Anime explorer"),
-            SizedBox(height: 10.h),
-            const Text("memser since 2024"),
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
+            Text("Anime explorer", style: appTheme.textTheme.bodyMedium),
+            SizedBox(height: 5.h),
+            Text("memser since 2024", style: appTheme.textTheme.bodyMedium),
+            SizedBox(height: 5.h),
             Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
@@ -65,7 +66,10 @@ class _SettingWidgetState extends State<SettingWidget> {
                   Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
-                      Text("msg31".tr(context)),
+                      Text(
+                        "msg31".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
                       const Spacer(),
                       GestureDetector(
                         onTap: () {
@@ -80,7 +84,10 @@ class _SettingWidgetState extends State<SettingWidget> {
                   Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
-                      Text("msg32".tr(context)),
+                      Text(
+                        "msg32".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
                       const Spacer(),
                       GestureDetector(
                         onTap: () {},
@@ -92,10 +99,10 @@ class _SettingWidgetState extends State<SettingWidget> {
               ),
             ),
 
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
               decoration: BoxDecoration(
                 color: AppColors.secondary,
                 borderRadius: AppRadius.medium,
@@ -114,39 +121,82 @@ class _SettingWidgetState extends State<SettingWidget> {
                         style: appTheme.textTheme.bodyMedium,
                       ),
                       const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
+                      Switch(
+                        value: ref.watch(themeProvider) == ThemeMode.dark,
+                        onChanged: (value) {
+                          ref.read(themeProvider.notifier).state = value
+                              ? ThemeMode.dark
+                              : ThemeMode.system;
+                        },
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
+                  Divider(color: Colors.black, thickness: .1.h, height: 1.h),
+                  // Row(
+                  //   children: [
+                  //     Text(
+                  //       "msg45".tr(context),
+                  //       style: appTheme.textTheme.bodySmall,
+                  //     ),
+                  //     const Spacer(),
+                  //     Switch(
+                  //       value: ref.watch(languageProvider) == Locale('ar'),
+                  //       onChanged: (value) {
+                  //         ref.read(languageProvider.notifier).state = value
+                  //             ? Locale('ar')
+                  //             : Locale('en');
+                  //       },
+                  //     ),
+                  //   ],
+                  // ),
+                  Divider(color: Colors.black, thickness: .1.h, height: 1.h),
                   Row(
                     children: [
-                      Text("msg37".tr(context)),
+                      Text(
+                        "msg45".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
                       const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
+                      DropdownButton<Locale>(
+                        dropdownColor: AppColors.primary,
+                        // iconEnabledColor: AppColors.secondary,
+                        // focusColor: AppColors.secondary,
+                        value: ref.watch(languageProvider),
+                        items: [
+                          DropdownMenuItem(
+                            value: Locale('en'),
+                            child: Text(
+                              "english",
+                              style: appTheme.textTheme.bodySmall,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: Locale('ar'),
+                            child: Text(
+                              "العربيه",
+                              style: appTheme.textTheme.bodySmall,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: null,
+                            child: Text(
+                              "msg46".tr(context),
+                              style: appTheme.textTheme.bodySmall,
+                            ),
+                          ),
+                        ],
+                        onChanged: (value) {
+                          ref.watch(languageProvider.notifier).state = value;
+                        },
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .1.h, height: 5.h),
-                  Row(
-                    children: [
-                      Text("msg38".tr(context)),
-                      const Spacer(),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_right_alt_outlined),
-                      ),
-                    ],
-                  ),
+                  Divider(color: Colors.black, thickness: .1.h, height: 1.h),
                 ],
               ),
             ),
 
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
@@ -161,38 +211,27 @@ class _SettingWidgetState extends State<SettingWidget> {
                     "msg39".tr(context),
                     style: appTheme.textTheme.bodySmall,
                   ),
-                  // ListTile(
 
-                  //   leading: Text(
-                  //     "msg40".tr(context),
-                  //     style: appTheme.textTheme.bodyMedium,
-                  //   ),
-                  //   trailing: SizedBox(
-                  //     height: 3.h,
-                  //     width: 3.w,
-
-                  //     child: Switch(value: _isdark, onChanged: (value) {}),
-                  //   ),
-                  // ),
-                  //"msg42"
                   Row(
                     children: [
                       Text(
                         "msg42".tr(context),
-                        style: appTheme.textTheme.bodyMedium,
+                        style: appTheme.textTheme.bodySmall,
                       ),
                       const Spacer(),
                       SizedBox(
                         height: 3.h,
-
-                        child: Switch(value: _isdark, onChanged: (Value) {}),
+                        child: const Icon(Icons.arrow_right_alt_outlined),
                       ),
                     ],
                   ),
                   Divider(color: Colors.black, thickness: .1.h, height: 3.h),
                   Row(
                     children: [
-                      Text("msg40".tr(context)),
+                      Text(
+                        "msg40".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
                       const Spacer(),
                       const Icon(Icons.arrow_right_alt_outlined),
                     ],
@@ -200,7 +239,10 @@ class _SettingWidgetState extends State<SettingWidget> {
                   Divider(color: Colors.black, thickness: .1.h, height: 5.h),
                   Row(
                     children: [
-                      Text("msg43".tr(context)),
+                      Text(
+                        "msg43".tr(context),
+                        style: appTheme.textTheme.bodySmall,
+                      ),
                       const Spacer(),
                       const Icon(Icons.arrow_right_alt_outlined),
                     ],
@@ -231,7 +273,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            // SizedBox(height: 10.h),
           ],
         ),
       ),

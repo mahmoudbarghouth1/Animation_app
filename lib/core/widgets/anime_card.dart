@@ -21,13 +21,21 @@ class AnimeCard extends StatelessWidget {
           padding: EdgeInsets.all(8.0.r),
           child: Row(
             children: [
-              SizedBox(
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 width: 90.w,
-                child: Image.network(
-                  data.images?.jpg?.imageUrl ?? "",
-                  fit: BoxFit.fill,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    data.images?.jpg?.imageUrl ?? "",
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
+
               SizedBox(width: 5.w),
 
               Expanded(
@@ -40,11 +48,11 @@ class AnimeCard extends StatelessWidget {
 
                       maxLines: 1,
                     ),
-                    SizedBox(height: 8.h),
+                    SizedBox(height: 2.h),
                     Row(
                       children: [
                         const Icon(Icons.star_purple500, color: Colors.amber),
-                        SizedBox(width: 2.w),
+                        SizedBox(width: 2.h),
                         Text(
                           data.score.toString(),
                           style: TextStyle(color: Colors.amberAccent),
@@ -63,7 +71,7 @@ class AnimeCard extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 5.h),
+                    SizedBox(height: 10.h),
                     data.genres != null && data.genres!.isNotEmpty
                         ? Expanded(
                             child: GridView.builder(

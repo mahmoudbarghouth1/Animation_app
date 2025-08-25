@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:sign/core/network_info.dart';
@@ -8,6 +9,9 @@ import 'package:sign/viewmodel/anime_view_model.dart';
 import 'package:sign/viewmodel/auth_view_model.dart';
 import 'package:sign/viewmodel/manga_view_model.dart';
 import 'package:sign/viewmodel/seach_view_model.dart';
+
+final themeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
+final languageProvider = StateProvider<Locale?>((ref) => null);
 
 final authViewerModelProvider =
     StateNotifierProvider<AuthViewModel, UserModel?>((ref) => AuthViewModel());

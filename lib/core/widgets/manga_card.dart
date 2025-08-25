@@ -12,7 +12,7 @@ class MangaCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
-        height: 120.h,
+        height: 100.h,
         decoration: BoxDecoration(
           color: AppColors.secondary,
           borderRadius: AppRadius.medium,
@@ -25,7 +25,6 @@ class MangaCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(),
                   borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromARGB(255, 255, 7, 65),
                 ),
                 width: 90.w,
                 child: ClipRRect(
@@ -72,7 +71,7 @@ class MangaCard extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: .25.h),
+                    SizedBox(height: 10.h),
                     mangaData.genres != null && mangaData.genres!.isNotEmpty
                         ? Expanded(
                             child: GridView.builder(
