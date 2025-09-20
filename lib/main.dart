@@ -1,23 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:sign/auth.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sign/core/app_localizations.dart';
+import 'package:sign/view/screens/auth_view_screens/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sign/core/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sign/viewmodel/providers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    ScreenUtilInit(
+      designSize: const Size(370, 700),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return const ProviderScope(child: MyApp());
+      },
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeProvider);
+    final language = ref.watch(languageProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(primarySwatch: Colors.blue),
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        for (var locale in supportedLocales) {
+          if (deviceLocale != null &&
+              deviceLocale.languageCode == locale.languageCode) {
+            return deviceLocale;
+          }
+        }
+
+        return supportedLocales.first;
+      },
+      locale: language,
+
+      theme: appTheme,
+      darkTheme: appDarkTheme,
+      themeMode: themeMode,
       home: const Auth(),
     );
   }
