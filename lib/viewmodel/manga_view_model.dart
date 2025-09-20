@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:sign/core/api_constants.dart';
 import 'package:sign/core/network_info.dart';
 
 import 'package:sign/model/manga_model.dart';
@@ -12,21 +13,24 @@ class ManagaViewModel {
   ManagaViewModel({required this.networkInfo});
 
   Future<List<MangaData>> getdata() async {
-    final url = Uri.https('api.jikan.moe', '/v4/top/manga');
+    final url = Uri.https(
+      ApiConstants.baseurl,
+      ApiConstants.path + ApiConstants.topManga,
+    );
 
     if (await networkInfo.isConnected) {
       final response = await http.get(
         url,
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": ApiConstants.contentType},
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == ApiConstants.successStatusCode) {
         final jsononDecoded = jsonDecode(response.body);
         final List lastresponse = jsononDecoded["data"];
         final List<MangaData> topManga = lastresponse
             .map((jsonindex) => MangaData.fromJson(jsonindex))
             .toList();
         return topManga;
-      } else if (response.statusCode == 400) {
+      } else if (response.statusCode == ApiConstants.badRequestStatusCode) {
         throw ("Server problem, please try again later.");
       } else {
         throw ("Unexpected server error: ${response.statusCode}");

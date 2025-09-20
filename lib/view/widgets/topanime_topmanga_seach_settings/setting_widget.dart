@@ -131,24 +131,8 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
                       ),
                     ],
                   ),
-                  Divider(color: Colors.black, thickness: .1.h, height: 1.h),
-                  // Row(
-                  //   children: [
-                  //     Text(
-                  //       "msg45".tr(context),
-                  //       style: appTheme.textTheme.bodySmall,
-                  //     ),
-                  //     const Spacer(),
-                  //     Switch(
-                  //       value: ref.watch(languageProvider) == Locale('ar'),
-                  //       onChanged: (value) {
-                  //         ref.read(languageProvider.notifier).state = value
-                  //             ? Locale('ar')
-                  //             : Locale('en');
-                  //       },
-                  //     ),
-                  //   ],
-                  // ),
+
+                  // Divider(color: Colors.black, thickness: .1.h, height: 1.h),
                   Divider(color: Colors.black, thickness: .1.h, height: 1.h),
                   Row(
                     children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign/core/app_theme.dart';
 
 class SnakeBarMessageWidget {
   void showSuccessSnakeBar({
@@ -11,12 +12,12 @@ class SnakeBarMessageWidget {
           message,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: AppColors.greenAccent,
       ),
     );
   }
@@ -31,12 +32,12 @@ class SnakeBarMessageWidget {
           message,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.redAccent,
       ),
     );
   }

@@ -5,11 +5,11 @@ import 'package:sign/core/app_localizations.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/image.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
-import 'package:sign/core/widgets/checkbox_form_field.dart';
+import 'package:sign/core/global%20widgets/checkbox_form_field.dart';
 import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
-import 'package:sign/core/widgets/text_field_widget.dart';
+import 'package:sign/core/global%20widgets/text_field_widget.dart';
 import 'package:sign/viewmodel/providers.dart';
-import 'package:sign/core/widgets/gradiant_scaffold.dart';
+import 'package:sign/core/global%20widgets/gradiant_scaffold.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});

@@ -1,98 +1,10 @@
 import 'package:flutter/material.dart';
 
-// final primaryColor = const Color.fromARGB(255, 11, 21, 73);
-
-// final secondryColor = const Color.fromARGB(255, 72, 97, 219);
-// final appTheme = ThemeData(
-//   appBarTheme: AppBarTheme(
-//     backgroundColor: primaryColor,
-//     //centerTitle: true,
-//     titleTextStyle: const TextStyle(
-//       color: Colors.white,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     leadingWidth: 5,
-//     titleSpacing: 25,
-//   ),
-//   iconTheme: const IconThemeData(color: Colors.white70),
-//   iconButtonTheme: const IconButtonThemeData(
-//     style: ButtonStyle(iconAlignment: IconAlignment.start),
-//   ),
-
-//   // brightness: Brightness.light,
-//   buttonTheme: ButtonThemeData(
-//     buttonColor: secondryColor,
-
-//     shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadiusGeometry.circular(12),
-//     ),
-//   ),
-//   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-//     type: BottomNavigationBarType.fixed,
-//     elevation: 0.9,
-//     backgroundColor: primaryColor,
-//     // selectedIconTheme: ,
-//     selectedItemColor: Colors.white70,
-//     // selectedLabelStyle: TextStyle(color: Colors.white),
-//     showSelectedLabels: true,
-//     // unselectedIconTheme: ,
-//     unselectedItemColor: Colors.white30,
-//     // unselectedLabelStyle: TextStyle(color: Colors.redAccent),
-//     showUnselectedLabels: true,
-//   ),
-
-//   primaryColor: primaryColor,
-//   colorScheme: ColorScheme.light(primary: primaryColor),
-//   progressIndicatorTheme: ProgressIndicatorThemeData(color: primaryColor),
-//   // floatingActionButtonTheme: FloatingActionButtonThemeData(
-//   //   backgroundColor: primaryColor,
-//   //   foregroundColor: secondryColor,
-//   // ),
-//   inputDecorationTheme: InputDecorationTheme(
-//     hintStyle: const TextStyle(
-//       color: Colors.white,
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     floatingLabelStyle: TextStyle(color: primaryColor, fontSize: 12),
-//     iconColor: secondryColor,
-//     border: InputBorder.none,
-
-//     filled: true,
-//     fillColor: secondryColor,
-
-//     focusedBorder: OutlineInputBorder(
-//       borderSide: BorderSide(color: secondryColor),
-//       borderRadius: BorderRadius.circular(12),
-//     ),
-//   ),
-//   textTheme: const TextTheme(
-//     bodyLarge: TextStyle(
-//       color: Colors.white,
-//       fontSize: 40,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     bodyMedium: TextStyle(
-//       color: Colors.white,
-//       fontSize: 18,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     bodySmall: TextStyle(
-//       color: Colors.white,
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//   ),
-// );
-
-// things that could be done:
-
-// 1. Fix typo and create proper color constants
 class AppColors {
-  // static const Color primary = Color.fromARGB(255, 11, 21, 73);
-  static const Color primary = Color(0xff0f1629);
+  static const Color primary = Color.fromARGB(255, 16, 28, 87);
+  // static const Color primary = Color(0xff0f1629);
   // static const Color secondary = Color.fromARGB(255, 72, 97, 219);
-  static const Color secondary = Color(0xff31329d);
+  static const Color secondary = Color.fromARGB(255, 53, 56, 188);
   static const Color white = Colors.white;
   static const Color white54 = Colors.white54;
   static const Color white70 = Colors.white70;
@@ -100,6 +12,9 @@ class AppColors {
   static const Color transparent = Colors.transparent;
   static const Color thirdColor = Color.fromARGB(255, 19, 28, 111);
   static const Color forthColor = Color(0xff1e3a8a);
+  static const Color greenAccent = Colors.greenAccent;
+  static const Color redAccent = Colors.redAccent;
+  static const Color loaderColor = Colors.amber;
 }
 
 // 2. Create dimension constants

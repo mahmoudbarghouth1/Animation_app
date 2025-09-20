@@ -1,31 +1,4 @@
-// class AnimeModel {
-//   final String title;
-//   final dynamic rank;
-//   final dynamic score;
-//   final String synopsis;
-//   final String imageUrl;
-//   final String genres1;
 
-//   AnimeModel({
-//     required this.title,
-//     required this.rank,
-//     required this.score,
-//     required this.synopsis,
-//     required this.imageUrl,
-//     required this.genres1,
-//   });
-
-//   factory AnimeModel.fromJason(Map<String, dynamic> json) {
-//     return AnimeModel(
-//       title: json["title"],
-//       rank: json["rank"],
-//       score: json["score"],
-//       synopsis: json["synopsis"],
-//       imageUrl: json["images"]["jpg"]["image_url"],
-//       genres1: (json["genres"]?[0]["name"]) ?? "good",
-//     );
-//   }
-// }
 class AnimeModel {
   Pagination? pagination;
   List<Data>? data;

@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign/core/app_theme.dart';
 import 'package:sign/core/util/snake_bar_message.dart';
-import 'package:sign/core/widgets/gradiant_scaffold.dart';
-import 'package:sign/core/widgets/text_field_widget.dart';
+import 'package:sign/core/global%20widgets/gradiant_scaffold.dart';
+import 'package:sign/core/global%20widgets/text_field_widget.dart';
 import 'package:sign/viewmodel/providers.dart';
 
 class ChangePassword extends ConsumerStatefulWidget {

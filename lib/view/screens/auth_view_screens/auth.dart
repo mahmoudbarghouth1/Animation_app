@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sign/core/widgets/loading_view.dart';
+import 'package:sign/core/global%20widgets/loading_view.dart';
 import 'package:sign/view/screens/auth_view_screens/login_screen.dart';
 import 'package:sign/view/screens/home_screen.dart';
 

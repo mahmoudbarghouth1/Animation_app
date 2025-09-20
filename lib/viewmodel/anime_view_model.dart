@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sign/core/api_constants.dart';
 import 'package:sign/core/network_info.dart';
 import 'package:http/http.dart' as http;
 // import 'dart:developer' show log;
@@ -12,21 +14,24 @@ class AnimeViewmodel {
   AnimeViewmodel({required this.networkInfo});
   // List<AnimeModel> topAnimeList = [];
   Future<List<Data>> getdata() async {
-    final url = Uri.https('api.jikan.moe', '/v4/top/anime');
+    final url = Uri.https(
+      ApiConstants.baseurl,
+      ApiConstants.path + ApiConstants.topAnime,
+    );
 
     if (await networkInfo.isConnected) {
       final response = await http.get(
         url,
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": ApiConstants.contentType},
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == ApiConstants.successStatusCode) {
         final jsononDecoded = jsonDecode(response.body);
         final List lastresponse = jsononDecoded["data"];
         final List<Data> topAnime = lastresponse
             .map((jsonindex) => Data.fromJson(jsonindex))
             .toList();
         return topAnime;
-      } else if (response.statusCode == 400) {
+      } else if (response.statusCode == ApiConstants.badRequestStatusCode) {
         throw Exception("Server problem, please try again later.");
       } else {
         throw Exception("Unexpected server error: ${response.statusCode}");
@@ -62,9 +67,9 @@ class AnimeViewmodel {
 //   }
 // }
 
-// things that could be done:
+// // things that could be done:
 
-// 1. Create proper interfaces for better testability
+// // 1. Create proper interfaces for better testability
 // abstract class IAnimeRepository {
 //   Future<List<AnimeModel>> getTopAnime();
 // }
@@ -74,7 +79,7 @@ class AnimeViewmodel {
 //   AnimeState get state;
 // }
 
-// 2. Create proper state management
+// // 2. Create proper state management
 // sealed class AnimeState {
 //   const AnimeState();
 // }
@@ -90,16 +95,9 @@ class AnimeViewmodel {
 //   const AnimeError(this.message);
 // }
 
-// 3. Create constants for API configuration
-// class ApiConstants {
-//   static const String baseUrl = 'https://api.jikan.moe';
-//   static const String topAnimeEndpoint = '/v4/top/anime';
-//   static const String contentType = 'application/json';
-//   static const int successStatusCode = 200;
-//   static const int badRequestStatusCode = 400;
-// }
 
-// 4. Improved repository implementation
+
+// // 4. Improved repository implementation
 // class AnimeRepository implements IAnimeRepository {
 //   final http.Client _httpClient;
 //   final NetworkInfo _networkInfo;
@@ -116,7 +114,7 @@ class AnimeViewmodel {
 //     }
     
 //     try {
-//       final url = Uri.https(ApiConstants.baseUrl, ApiConstants.topAnimeEndpoint);
+//       final url = Uri.https(ApiConstants.baseurl, ApiConstants.topAnimeEndpoint);
 //       final response = await _httpClient.get(
 //         url,
 //         headers: {HttpHeaders.contentTypeHeader: ApiConstants.contentType},
@@ -125,7 +123,7 @@ class AnimeViewmodel {
 //       if (response.statusCode == ApiConstants.successStatusCode) {
 //         final jsonDecoded = jsonDecode(response.body);
 //         final List<dynamic> data = jsonDecoded['data'] as List<dynamic>;
-//         
+        
 //         return data.map((json) => AnimeModel.fromJson(json)).toList();
 //       } else if (response.statusCode == ApiConstants.badRequestStatusCode) {
 //         throw const ServerException('Server problem, please try again later.');
@@ -143,7 +141,7 @@ class AnimeViewmodel {
 //   }
 // }
 
-// 5. Improved ViewModel with proper MVVM
+// // 5. Improved ViewModel with proper MVVM
 // class AnimeViewModel extends StateNotifier<AnimeState> implements IAnimeViewModel {
 //   final IAnimeRepository _repository;
   
@@ -164,7 +162,7 @@ class AnimeViewmodel {
 //   AnimeState get state => super.state;
 // }
 
-// 6. Custom exceptions for better error handling
+// // 6. Custom exceptions for better error handling
 // class NetworkException implements Exception {
 //   final String message;
 //   const NetworkException(this.message);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sign/core/app_theme.dart';
 
 class CheckboxFormField extends FormField<bool> {
   CheckboxFormField({
@@ -23,18 +24,18 @@ class CheckboxFormField extends FormField<bool> {
                    style: const TextStyle(
                      fontSize: 15,
                      fontWeight: FontWeight.bold,
-                     color: Colors.white,
+                     color: AppColors.white,
                    ),
                  ),
                  controlAffinity: ListTileControlAffinity.leading,
                ),
                if (state.hasError)
                  Padding(
-                   padding:  EdgeInsets.only(left: 12.0.r),
+                   padding: EdgeInsets.only(left: 12.0.r),
                    child: Text(
                      state.errorText ?? '',
                      style: const TextStyle(
-                       color: Colors.redAccent,
+                       color: AppColors.redAccent,
                        fontSize: 12,
                        fontWeight: FontWeight.bold,
                      ),
