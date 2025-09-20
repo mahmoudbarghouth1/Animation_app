@@ -36,7 +36,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: AppColors.secondary,
+                          color: AppColors.grey,
                           borderRadius: AppRadius.small.r,
                         ),
                         child: Row(
@@ -51,7 +51,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: AppColors.secondary,
+                          color: AppColors.grey,
                           borderRadius: AppRadius.small.r,
                         ),
                         child: Text(data.score.toString()),
@@ -60,7 +60,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: AppColors.secondary,
+                          color: AppColors.grey,
                           borderRadius: AppRadius.small.r,
                         ),
                         child: Text(data.score.toString()),
@@ -89,7 +89,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: AppRadius.larg.r,
-                          color: AppColors.thirdColor,
+                          color: AppColors.grey,
                         ),
                         padding: EdgeInsets.all(15.r),
 
@@ -112,7 +112,7 @@ class AnimeView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: AppRadius.larg.r,
-                          color: AppColors.thirdColor,
+                          color: AppColors.grey,
                         ),
                         height: 210.h,
                         padding: EdgeInsets.all(10.r),
@@ -199,56 +199,90 @@ class AnimeView extends StatelessWidget {
                         padding: EdgeInsets.all(5.r),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 19, 28, 111),
+                          color: AppColors.grey,
                         ),
                         height: 70.h,
 
                         child: data.genres != null && data.genres!.isNotEmpty
-                            ? GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 4,
-                                      crossAxisSpacing: 10,
-                                      mainAxisSpacing: 10,
-                                      childAspectRatio: 2,
-                                    ),
-                                itemCount: data.genres!.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 10.w,
-                                      vertical: 5.h,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.primary,
-                                      borderRadius: AppRadius.small,
-                                    ),
-                                    child: Text(data.genres![index].name!),
-                                  );
-                                },
+                            ? Padding(
+                                padding: EdgeInsets.all(8.r),
+                                child: GridView.builder(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 4,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 10,
+                                        childAspectRatio: 2,
+                                      ),
+                                  itemCount: data.genres!.length,
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10.w,
+                                        vertical: 5.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.primary,
+                                        borderRadius: AppRadius.small,
+                                      ),
+                                      child: Text(data.genres![index].name!),
+                                    );
+                                  },
+                                ),
                               )
                             : SizedBox.shrink(),
                       ),
                     ],
                   ),
                   SizedBox(height: 10.h),
-                  Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  // Column(
+                  //   // mainAxisAlignment: MainAxisAlignment.start,
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
 
-                    children: [
-                      const Text("Media"),
-                      SizedBox(height: 10.h),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: AppColors.thirdColor,
-                        ),
-                        height: 400.h,
-                        padding: EdgeInsets.all(10.r),
-                      ),
-                    ],
-                  ),
+                  //   children: [
+                  //     const Text("Media"),
+                  //     SizedBox(height: 10.h),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(30),
+                  //     color: AppColors.grey,
+                  //   ),
+                  //   // height: 400.h,
+                  //   width: double.infinity,
+                  //   padding: EdgeInsets.all(10.r),
+                  //   child:
+                  //       data.titleSynonyms != null &&
+                  //           data.titleSynonyms!.isNotEmpty
+                  //       ? Padding(
+                  //           padding: EdgeInsets.all(8.r),
+                  //           child: GridView.builder(
+                  //             gridDelegate:
+                  //                 SliverGridDelegateWithFixedCrossAxisCount(
+                  //                   crossAxisCount: 4,
+                  //                   crossAxisSpacing: 10,
+                  //                   mainAxisSpacing: 10,
+                  //                   childAspectRatio: 2,
+                  //                 ),
+                  //             itemCount: data.genres!.length,
+                  //             itemBuilder: (context, index) {
+                  //               return Container(
+                  //                 padding: EdgeInsets.symmetric(
+                  //                   horizontal: 10.w,
+                  //                   vertical: 5.h,
+                  //                 ),
+                  //                 decoration: BoxDecoration(
+                  //                   color: AppColors.primary,
+                  //                   borderRadius: AppRadius.small,
+                  //                 ),
+                  //                 child: Text(data.genres![index].name!),
+                  //               );
+                  //             },
+                  //           ),
+                  //         )
+                  //       : SizedBox.shrink(),
+                  // ),
+                  //  ],
+                  // ),
                   SizedBox(height: 20.h),
                 ],
               ),

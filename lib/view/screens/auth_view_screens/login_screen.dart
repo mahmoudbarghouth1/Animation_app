@@ -63,7 +63,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       decoration: BoxDecoration(
-                        color: AppColors.secondary,
+                        color: AppColors.grey,
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       // child: Padding(
@@ -81,7 +81,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       decoration: BoxDecoration(
-                        color: AppColors.secondary,
+                        color: AppColors.grey,
                         borderRadius: BorderRadius.circular(12.r),
                       ),
 

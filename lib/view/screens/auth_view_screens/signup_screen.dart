@@ -63,7 +63,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   //email text field
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.grey,
                       borderRadius: BorderRadius.circular(12.r),
                     ),
 
@@ -80,7 +80,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   SizedBox(height: 10.h),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.grey,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -97,7 +97,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   //pasword textfield
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.grey,
                       borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Padding(
@@ -113,7 +113,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   SizedBox(height: 10.h),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.grey,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(

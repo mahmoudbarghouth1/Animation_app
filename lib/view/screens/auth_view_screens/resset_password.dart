@@ -37,7 +37,7 @@ class _RessetPasswordState extends ConsumerState<RessetPassword> {
                 SizedBox(height: 70.h),
                 Container(
                   decoration: BoxDecoration(
-                    color: AppColors.secondary,
+                    color: AppColors.grey,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
 

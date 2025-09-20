@@ -36,7 +36,7 @@ class _ChangePasswordState extends ConsumerState<ChangePassword> {
                 SizedBox(height: 70.h),
                 Container(
                   decoration: BoxDecoration(
-                    color: AppColors.secondary,
+                    color: AppColors.grey,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
 
@@ -53,7 +53,7 @@ class _ChangePasswordState extends ConsumerState<ChangePassword> {
                 SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
-                    color: AppColors.secondary,
+                    color: AppColors.grey,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
 
@@ -70,7 +70,7 @@ class _ChangePasswordState extends ConsumerState<ChangePassword> {
                 SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
-                    color: AppColors.secondary,
+                    color: AppColors.grey,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
 
