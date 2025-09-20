@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign/core/app_localizations.dart';
+import 'package:sign/core/app_theme.dart';
 import 'package:sign/view/widgets/topanime_topmanga_seach_settings/search_widget.dart';
 import 'package:sign/view/widgets/topanime_topmanga_seach_settings/setting_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     super.build(context);
     Widget? body;
     String? appBarTitle;
-  
+
     if (ref.read(bottomNavigatorProvider.notifier).state == 0) {
       body = TopAnimeWidget();
       appBarTitle = "msg15".tr(context);
@@ -85,14 +86,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   //   App Bar
   AppBar _appBar(context, appBarTitle) {
     return AppBar(
-      leading: const Icon(Icons.emoji_events, color: Colors.white60),
+      leading: const Icon(Icons.emoji_events, color: Colors.black),
 
-      title: Text(appBarTitle),
+      title: Text(appBarTitle, style: appTheme.textTheme.bodyMedium),
     );
   }
 
   @override
-  
   bool get wantKeepAlive => false;
 }
 

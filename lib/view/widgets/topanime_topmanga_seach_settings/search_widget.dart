@@ -55,7 +55,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               decoration: BoxDecoration(
-                color: AppColors.secondary,
+                color: AppColors.grey,
                 borderRadius: AppRadius.medium,
               ),
               child: Row(
@@ -85,7 +85,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
             Container(
               padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 2.w),
               decoration: BoxDecoration(
-                color: AppColors.secondary,
+                color: AppColors.grey,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -102,7 +102,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                           borderRadius: BorderRadius.circular(10.r),
                           color: choice == "anime"
                               ? AppColors.primary
-                              : AppColors.secondary,
+                              : AppColors.grey,
                         ),
 
                         child: Text("msg24".tr(context)),
@@ -121,7 +121,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                           borderRadius: BorderRadius.circular(5.r),
                           color: choice == "manga"
                               ? AppColors.primary
-                              : AppColors.secondary,
+                              : AppColors.grey,
                         ),
 
                         child: Text("msg25".tr(context)),
@@ -138,7 +138,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
 
                 decoration: BoxDecoration(
-                  color: AppColors.secondary,
+                  color: AppColors.grey,
                   borderRadius: BorderRadius.circular(20.r),
                 ),
 

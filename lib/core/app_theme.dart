@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color.fromARGB(255, 16, 28, 87);
-  // static const Color primary = Color(0xff0f1629);
-  // static const Color secondary = Color.fromARGB(255, 72, 97, 219);
+  // static const Color primary = Color.fromARGB(255, 16, 28, 87);
+  static const Color primary = Color(0xfff5f8ff);
+  // static const Color primary = Color.fromARGB(255, 72, 97, 219);
   static const Color secondary = Color.fromARGB(255, 53, 56, 188);
   static const Color white = Colors.white;
+  static const Color black = Colors.black;
+  static const Color grey = Colors.grey;
+
   static const Color white54 = Colors.white54;
   static const Color white70 = Colors.white70;
   static const Color white30 = Colors.white30;
@@ -80,55 +83,52 @@ final appTheme = ThemeData(
     type: BottomNavigationBarType.fixed,
     elevation: AppDimensions.elevation,
     backgroundColor: AppColors.primary,
-    selectedItemColor: AppColors.white70,
+    selectedItemColor: AppColors.black,
     showSelectedLabels: true,
-    unselectedItemColor: AppColors.white30,
+    unselectedItemColor: Colors.brown,
     showUnselectedLabels: true,
   ),
   primaryColor: AppColors.primary,
   colorScheme: ColorScheme.light(
     primary: AppColors.primary,
-    secondary: AppColors.secondary,
+    secondary: AppColors.grey,
   ),
-  progressIndicatorTheme: ProgressIndicatorThemeData(color: AppColors.primary),
+  progressIndicatorTheme: ProgressIndicatorThemeData(color: AppColors.grey),
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: const TextStyle(
-      color: AppColors.white,
+      color: AppColors.black,
       fontSize: AppTextSizes.small,
       fontWeight: FontWeight.bold,
     ),
     floatingLabelStyle: TextStyle(
-      color: AppColors.primary,
+      color: AppColors.black,
       fontSize: AppTextSizes.small,
     ),
-    iconColor: AppColors.secondary,
+    iconColor: AppColors.grey,
     border: OutlineInputBorder(
       borderSide: BorderSide.none,
       borderRadius: AppRadius.medium,
     ),
     filled: true,
-    fillColor: AppColors.secondary,
+    fillColor: AppColors.grey,
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(
-        color: const Color.fromARGB(255, 6, 10, 75),
-        width: 1,
-      ),
+      borderSide: BorderSide(color: AppColors.grey, width: 1),
       borderRadius: AppRadius.medium,
     ),
   ),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(
-      color: AppColors.white,
+      color: AppColors.black,
       fontSize: AppTextSizes.large,
       fontWeight: FontWeight.bold,
     ),
     bodyMedium: TextStyle(
-      color: AppColors.white,
+      color: AppColors.black,
       fontSize: AppTextSizes.medium,
       fontWeight: FontWeight.bold,
     ),
     bodySmall: TextStyle(
-      color: AppColors.white,
+      color: AppColors.black,
       fontSize: AppTextSizes.small,
       fontWeight: FontWeight.bold,
     ),
@@ -143,11 +143,29 @@ final appTheme = ThemeData(
 final appDarkTheme = ThemeData(
   brightness: Brightness.dark,
   iconTheme: const IconThemeData(color: AppColors.white70),
-  primaryColor: AppColors.primary,
+  primaryColor: AppColors.grey,
   colorScheme: ColorScheme.dark(
-    primary: AppColors.primary,
-    secondary: AppColors.secondary,
+    primary: AppColors.grey,
+    secondary: AppColors.white,
   ),
+  textTheme: const TextTheme(
+    bodyLarge: TextStyle(
+      color: AppColors.black,
+      fontSize: AppTextSizes.large,
+      fontWeight: FontWeight.bold,
+    ),
+    bodyMedium: TextStyle(
+      color: AppColors.black,
+      fontSize: AppTextSizes.medium,
+      fontWeight: FontWeight.bold,
+    ),
+    bodySmall: TextStyle(
+      color: AppColors.black,
+      fontSize: AppTextSizes.small,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+
   // appBarTheme: AppBarTheme(
   //   titleTextStyle: const TextStyle(
   //     color: AppColors.white,

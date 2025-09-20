@@ -14,7 +14,7 @@ class MangaCard extends StatelessWidget {
       child: Container(
         height: 100.h,
         decoration: BoxDecoration(
-          color: AppColors.secondary,
+          color: AppColors.grey,
           borderRadius: AppRadius.medium,
         ),
         child: Padding(

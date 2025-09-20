@@ -40,7 +40,7 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
-                color: AppColors.secondary,
+                color: AppColors.grey,
                 borderRadius: AppRadius.medium.r,
               ),
               child: Column(
@@ -104,7 +104,7 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
               decoration: BoxDecoration(
-                color: AppColors.secondary,
+                color: AppColors.grey,
                 borderRadius: AppRadius.medium,
               ),
               child: Column(
@@ -185,7 +185,7 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
-                color: AppColors.secondary,
+                color: AppColors.grey,
                 borderRadius: AppRadius.medium,
               ),
               child: Column(
