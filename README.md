@@ -1,16 +1,23 @@
-# sign
+# 🎬 Animation App
 
-A new Flutter project.
+A simple Flutter project showcasing animations with state management and API integration.
 
-## Getting Started
+## 🚀 Features
+- 🎞️ Smooth animations for UI elements
+- 🔄 API request integration with **http**
+- ⚡ State management using **Provider**
+- 📱 Responsive UI
+- language [AR-EN]
+- change the language according to the mob setting and optional in the setting page of the app .
+- Dark and Light Mode accoring to the mob setting and optional in setting page .
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tech Stack
+- **Flutter** (UI Framework)
+- **Dart** (Programming Language)
+- **Provider** (State Management)
+- **http** (API Requests)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ▶️ Getting Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/Animation_app.git
