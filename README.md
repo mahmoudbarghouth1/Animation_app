@@ -7,6 +7,9 @@ A simple Flutter project showcasing animations with state management and API int
 - 🔄 API request integration with **http**
 - ⚡ State management using **Provider**
 - 📱 Responsive UI
+- language [AR-EN]
+- change the language according to the mob setting and optional in the setting page of the app .
+- Dark and Light Mode accoring to the mob setting and optional in setting page .
 
 ## 🛠️ Tech Stack
 - **Flutter** (UI Framework)
